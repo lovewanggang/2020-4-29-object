@@ -1,0 +1,270 @@
+<view class='all'>
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{indicatorDots}}" indicator-color="rgba(255,255,255,.5)" indicator-active-color="rgba(255,255,255,1)" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='index_swiper index_swipersss'>
+    <block wx:for="{{imgUrls}}" >
+      <swiper-item>
+        <image lazy-load="true" src="{{item}}" class="slide-image" mode='aspectFill' lazy-load='true' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 公司logo地址 -->
+  <view class='company_contact'>
+    <view style='display:flex;flex-direction: row;align-items: center;'>
+      <image lazy-load="true" src='{{comLogo}}' class='company_logo' mode='aspectfill'></image>
+      <view style='vertical-align:center;' class='compant_l'>
+        <view style="display: -webkit-box; overflow: hidden;-webkit-box-orient:vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;">{{comName}}</view>
+        <view class='sl' bindtap='getlocation'> <image src='../images/address.png' mode='aspectFit' class='sm_icon'></image>{{comAdrr}}</view>
+      </view>
+    </view>
+    <image src='../images/phone.png' class='c_phone' mode='aspectFit'  bindtap='callConpany' data-value="{{comPhone}}"></image>
+  </view>
+  <!-- 企业简介 -->
+  <view class='bgwhite mk_t' >
+    <view class='mkTitle'>
+      <text class='mk_title'>企业简介</text>
+    </view>
+      <view class=" Company_Profile ">{{comProfile}}</view> 
+     <!-- <view class="{{lookMore?'':'sl_6'}} Company_Profile ">{{comProfile}}</view>  --> 
+    <!-- <button class='btn_more' bindtap="lookMore"> {{lookMore?'收起':'查看更多'}}</button> -->
+    <view class='text-center' bindtap="lookMore">
+    <image lazy-load="true" mode='aspectFit' src="{{lookMore?'../images/up.png':'../images/down.png'}}" class='down' wx:if="{{comProfile > 96}}"></image>
+    </view>
+  </view>
+  <!-- 我们提供 -->
+  <view class='bgwhite we_provide mk_t' wx:if="{{business_on_off}}">
+    <view class='mkTitle'>
+      <text class='mk_title'>我们提供</text>
+      <navigator open-type='switchTab' url='../category/category' > 更多</navigator>
+    </view>
+    <!-- 六边形标签 -->
+    <view class='six_tips '>
+      <view class='six_p1'>
+        <text  style='background: url("https://wxnature.nature-nt.com/img/11.png") no-repeat; background-size:contain; background-position:center center'>{{business1}}</text>
+      </view>
+      <view class='six_p1'>
+        <text  style='background: url("https://wxnature.nature-nt.com/img/22.png") no-repeat; background-size:contain; background-position:center center'>{{business2}}</text>
+      </view>
+      <view class='six_p1'>
+        <text  style='background: url("https://wxnature.nature-nt.com/img/33.png") no-repeat; background-size:contain; background-position:center center'>{{business3}}</text>
+      </view>
+      <view class='six_p1'>
+        <text  style='background: url("https://wxnature.nature-nt.com/img/44.png") no-repeat; background-size:contain; background-position:center center'>{{business4}}</text>
+      </view>
+    </view>
+    <!-- 图片展示 -->
+    <view>
+      <view class='pro_img'>
+        <image lazy-load="true" mode='widthFix' src='{{businessPic1}}' lazy-load='true'></image>
+      </view>
+      <view class='pro_img'>
+        <image lazy-load="true" mode='widthFix' src='{{businessPic2}}' lazy-load='true'></image>
+      </view>
+      <view class='pro_img'>
+        <image lazy-load="true" mode='widthFix' src='{{businessPic3}}' lazy-load='true'></image>
+      </view>
+
+    </view>
+
+  </view>
+
+  <!-- 人气商品 -->
+  <view class='bgwhite we_provide mk_t' wx:if="{{hotProduct_on_off}}">
+    <view class='mkTitle'>
+      <text class='mk_title'>人气商品</text>
+      <navigator open-type='switchTab' url='../category/category' > 更多</navigator>
+    </view>
+
+    <!-- 图片展示 -->
+    <view>
+      <view class='rq_img' wx:if="{{productPic1of}}">
+        <image mode='widthFix' src='{{productPic1}}' lazy-load='true' bindtap="detail"></image>
+      </view>
+      <view class='rq_img'  wx:if="{{productPic2of}}">
+        <image mode='widthFix' src='{{productPic2}}' lazy-load='true'bindtap="detail"></image>
+      </view>
+      <view class='rq_img' wx:if="{{productPic3of}}">
+        <image mode='widthFix' src='{{productPic3}}' lazy-load='true'bindtap="detail"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 视频展示 -->
+  <view class='bgwhite we_provide mk_t' wx:if="{{comVedio_on_off}}">
+    <view class='mkTitle'>
+      <text class='mk_title'>视频展示</text>
+    </view>
+    <view class='sp_zs'>{{vedioTitle}}</view>
+    <!-- 视频 -->
+    <video id="myVideo" src="{{vedioUrl}}"
+      binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls>
+    </video>
+  </view>
+
+  <!-- 团队风采 -->
+  <view class='bgwhite we_provide mk_t' wx:if="{{comActivity_on_off}}">
+    <view class='mkTitle'>
+      <text class='mk_title'>团队风采</text>
+    </view>
+    <view wx:for="{{activityList}}" wx:for-item="activity" wx:for-index="idx"  class='article' bindtap="team_detail" data-aid="{{activity.companyActivitiesId}}" wx:if="{{idx < activityIndex}}">
+      <image  lazy-load="true" wx:if="{{activity.activityTitlePic.length > 0}}" src='{{activity.activityTitlePic}}' class='article_img' mode='aspectFill'></image>
+      <view class='right_article'>
+        <view class='article_title'>{{activity.activityTitle}}</view>
+        <view class='article_detail'>{{activity.activityPluckText}}</view>
+        <view class='article_time'>{{activity.createTime}}</view>
+      </view>
+    <!-- <view>{{idx}}==={{activityList.length}}</view> -->
+    </view>
+    <view wx:if="{{activityList.length > 4}}">
+     <view class='text-center' bindtap="packUp"  wx:if="{{activityList.length <= activityIndex}}">
+      <image mode='aspectFit' src="../images/up.png" class='down'></image>
+    </view>
+     <view class='text-center' bindtap="loadMore"  wx:if="{{activityList.length > activityIndex}}">
+      <image mode='aspectFit' src="../images/down.png" class='down'></image>
+      
+    </view>
+</view>
+
+  </view>
+
+
+  <!-- 我们的形象 -->
+  <view class='bgwhite we_provide mk_t' wx:if="{{comImage_on_off}}">
+    <view class='mkTitle'>
+      <text class='mk_title'>我们的形象</text>
+    </view>
+    <!-- <view wx:for="{{comImageList}}" wx:for-item="i" >
+      <image mode='widthFix' src='{{i}}' lazy-load='true' class='w100' bindtap='bigImg'></image>
+    </view> -->
+     <swiper indicator-dots="{{indicatorDots}}" indicator-color="rgba(255,255,255,.5)" indicator-active-color="rgba(255,255,255,1)" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='index_swiper'>
+    <block wx:for="{{comImageList}}" >
+      <swiper-item>
+        <image  lazy-load="true" src="{{item}}" class="slide-image" mode='aspectFill' lazy-load='true' />
+      </swiper-item>
+    </block>
+  </swiper>
+  </view>
+  <!-- 荣誉资历 -->
+  <view class='bgwhite we_provide mk_t' wx:if="{{comHonors_on_off}}">
+    <view class='mkTitle'>
+      <text class='mk_title'>荣誉资历</text>
+    </view>
+    <!-- 证书 -->
+    <view class='zs'>
+      <view class='oneCertificate' wx:for="{{honorList}}" wx:for-item="honor"  >
+        <image mode='aspectFit' src='{{honor.chPic}}' lazy-load='true' class='w100'></image>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 合作伙伴 -->
+  <view class='bgwhite we_provide mk_t' wx:if="{{comPartner_on_off}}">
+    <view class='mkTitle'>
+      <text class='mk_title'>合作伙伴</text>
+    </view>
+    <!-- logo -->
+    <view class='logoList'>
+      <view class='logo_i'  wx:for="{{partnerList}}" wx:for-item="partner" >
+        <image mode='aspectFit' src='{{partner.partnerLogo}}' lazy-load='true'></image>
+      </view>
+      
+    </view>
+  </view>
+  <!-- 加入我们 -->
+  <view class='bgwhite we_provide mk_t' style='padding-bottom:70rpx;' wx:if="{{comJob_on_off}}">
+    <view class='mkTitle'>
+      <text class='mk_title'>加入我们</text>
+    </view>
+    <!-- 招聘列表 -->
+    <view wx:for="{{jobList}}" wx:for-item="job" >
+    <view class='zp_list' bindtap='zp_detail' data-testid="{{job.companyJobInfoId}}">
+      <view class='zw_name'>{{job.cjiName}}</view>
+      <view class='zw_sxlist'>
+        <text class='zw_sx'>月薪： <text>{{job.cjiSalary}}</text></text>
+        <text class='zw_sx'>经验： <text>{{job.cjiExp}}</text></text>
+        <text class='zw_sx'>学历：<text>{{job.cjiEdu}}</text></text>
+      </view>
+      <image mode='aspectFit' src='../images/rightjt.png' class='rightjt'> </image>
+    </view>
+</view>
+    
+  </view>
+
+  <!-- 联系我们 -->
+  <view class='bgwhite we_provide mk_t'>
+    <view class='mkTitle'>
+      <text class='mk_title'>联系我们</text>
+    </view>
+    <view>
+      <view class='contact_company'>
+        <image  lazy-load="true" src='{{comContactLogo}}' mode='aspectFill' class='country_logo'></image>
+        <view class='contact_right'>
+          <view class='contact_username'>{{comContact}}</view>
+          <view class='contact_gs'>{{comName}}</view>
+        </view>
+      </view>
+      <!-- 联系方式 -->
+      <view class='contact_way'>
+        <view class='way_i'  wx:if="{{phone.comPhone}} != null">
+          <text class='left_ab'>手机：</text>
+          <view class='ci clia' wx:for="{{phoneList}}" wx:for-item="phone" >
+            <view bindtap='callit' data-value="{{phone.comPhone}}">{{phone.comPhone}}</view>
+          </view>
+        </view>
+        <view class='way_i'  style='overflow:auto;' wx:if="{{qq.comQQ}} != null">
+          <text class='left_ab'>QQ：</text>
+          <view class='ci ' wx:for="{{qqList}}" wx:for-item="qq" >
+           <text selectable="true" >{{qq.comQQ}}</text>
+          </view>
+        </view>
+        <view class='way_i' wx:if="{{comFax}}">
+          <text class='left_ab'>传真：</text>
+          <view class='ci '>
+            <view>{{comFax}}</view>
+          </view>
+        </view>
+        <view class='way_i' wx:if="{{comEmail}}">
+          <text class='left_ab'>邮箱：</text>
+          <view class='ci '>
+             <text selectable="true" >{{comEmail}}</text>
+          </view>
+        </view>
+        <view class='way_i'>
+          <text class='left_ab'>地址：</text>
+          <view class='ci'>
+            <view data-value="广东省广州市海珠区珠江国际纺织城">{{comAdrr}}</view>
+          </view>
+        </view>
+      </view>
+      <view style='text-align:center'>
+        <image mode='aspectFit' src='{{comQRcode}}' lazy-load='true' class='ewm_bottom'  bindtap='bigImg' wx:if="{{comQRcode}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class='end'>
+    <text>END</text>
+  </view>
+  <view class='bgwhite we_provide mk_t' style='margin-bottom:0'>
+    <view class='bm_lx'>
+      <image  lazy-load="true" src='{{comLogo}}' mode='aspectFit' class='sm_logo'></image>
+      <view>{{comName}}</view>
+      <view>咨询热线: <text>{{comPhone}}</text></view>
+    </view>
+   
+  </view>
+</view>
+
+<!-- 自定义弹框开始 -->
+<view class="model" wx:if="{{!authorized}}">
+  <view class="modelTitle"> 提示 </view>
+  <view class="modelBody">小程序注册需要获取您的公开信息,请授权</view>
+  <view class="btns">
+    <button open-type="getUserInfo" class="agree" bindgetuserinfo="agreeGetUser" lang="zh_CN">去授权</button>
+  </view>
+</view>
+<!-- 自定义弹框结束 -->
+<view class='zzcUser' wx:if="{{!authorized}}"></view>
+
+<image src='../images/hotphone.png' mode='aspeciFit' class='hotphone' bindtap='callConpany' data-value="{{comPhone}}"></image>
+<button  open-type='contact' class='kff'><image src='../images/kf.png' mode='aspeciFit' class='kf'  bindtap='kf'></image></button>
+<image  lazy-load="true" src='https://wxnature.nature-nt.com/img/qr.png' mode='aspeciFit' class='shareewm' bindtap='shareewm'></image>

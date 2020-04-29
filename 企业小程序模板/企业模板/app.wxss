@@ -1,0 +1,126 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.bgwhite{background-color: #ffffff;}
+.fs1_2{font-size: 1.2em}
+.pd30{padding: 30rpx;}
+
+
+
+/* 搜索框 */
+.search-wrapper {  
+  position: fixed;/*悬停搜索框的关键样式*/  
+  top: 0px;  
+  left: 0;  
+  width: 100%;  
+  z-index: 999;  
+}  
+  
+ .w100{width: 100%}
+  
+.search-section {  
+  padding: 10rpx 27rpx;  
+  display: flex;  
+  flex-direction: row;  
+  height:80rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+
+}  
+  
+.search-demo {  
+  padding: 5px;  
+  flex-direction: row;  
+  background-color: #eeeeee;  
+  padding-left:42px;     
+  align-items: flex-start;  
+}  
+  
+.search-input-wrapper {  
+  flex: 8;  
+  padding:0rpx 85rpx 0rpx 50px;
+  background-color: #eeeeee;  
+  border-radius: 7px;  
+  position: relative;
+}  
+  
+.search-input {  
+ padding-top:0px;
+height:60rpx;
+line-height:60rpx;
+font-size: 1em!important;
+
+}  
+  
+.search-clear {  
+  position: absolute;
+  right: 20rpx; 
+  width: 35rpx;  
+  height: 35rpx;  
+  z-index: 998;
+  top: 50%;
+  margin-top: -17rpx;  
+}  
+.search_btn{height: 60rpx; font-size: 1.1em!important; line-height: 60rpx!important; border-radius: 0; border: 0; background-color: #ffffff;padding: 0 20rpx!important;}  
+.search_btn::after{border: 0;}
+ 
+.search_icon{height: 40rpx; width: 40rpx;position: absolute; top: 50%; margin-top: -20rpx; left: 20rpx;}
+
+.orangeText{color: #ca6714; background-color: #ffffff}
+
+.hotphone{width:80rpx; height: 80rpx; position: fixed;top: 60%; right: 30rpx;}
+.kff{width:80rpx; height: 80rpx; position: fixed;top: 70%; right: 30rpx;padding: 0 ; background: none; border: 0}
+.kff::after{border: 0}
+.kf{width: 100%; height: 100%;}
+.shareewm{width:80rpx; height: 80rpx; position: fixed;top: 80%; right: 30rpx;}
+
+
+/*iPhone   5:*/
+
+
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2){
+page{font-size: 13px;}
+.all{font-size: 12px}
+}
+
+/* iphone 6 */
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+  page{font-size: 14px;}
+
+}
+/* iphone6 plus */
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+     page{font-size: 16px;}
+}
+/* 判断ipad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px){
+/* style */
+  page{font-size: 18px;}
+}
+
+/* ipad横屏 */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape){
+/* style */
+  page{font-size: 18px;}
+}
+
+/* ipad竖屏 */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait){
+/* style */
+  page{font-size: 18px;}
+}

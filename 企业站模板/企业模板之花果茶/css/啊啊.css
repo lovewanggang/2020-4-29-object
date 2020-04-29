@@ -1,0 +1,5243 @@
+.slick-slider {
+	box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-ms-touch-action: pan-y;
+	touch-action: pan-y;
+	-webkit-tap-highlight-color: transparent
+}
+
+.slick-list,
+.slick-slider {
+	position: relative;
+	display: block
+}
+
+.slick-list {
+	overflow: hidden;
+	margin: 0;
+	padding: 0
+}
+
+.slick-list:focus {
+	outline: none
+}
+
+.slick-list.dragging {
+	cursor: pointer;
+	cursor: hand
+}
+
+.slick-slider .slick-list,
+.slick-slider .slick-track {
+	transform: translateZ(0)
+}
+
+.slick-track {
+	position: relative;
+	left: 0;
+	top: 0;
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.slick-track:after,
+.slick-track:before {
+	content: "";
+	display: table
+}
+
+.slick-track:after {
+	clear: both
+}
+
+.slick-loading .slick-track {
+	visibility: hidden
+}
+
+.slick-slide {
+	float: left;
+	height: 100%;
+	min-height: 1px;
+	display: none
+}
+
+[dir=rtl] .slick-slide {
+	float: right
+}
+
+.slick-slide img {
+	display: block
+}
+
+.slick-slide.slick-loading img {
+	display: none
+}
+
+.slick-slide.dragging img {
+	pointer-events: none
+}
+
+.slick-initialized .slick-slide {
+	display: block
+}
+
+.slick-loading .slick-slide {
+	visibility: hidden
+}
+
+.slick-vertical .slick-slide {
+	display: block;
+	height: auto;
+	border: 1px solid transparent
+}
+
+.slick-arrow.slick-hidden {
+	display: none
+}
+
+.slick-loading .slick-list {
+	background: #fff url(images/c5cd7f5300576ab4c88202b42f6ded62.gif) 50% no-repeat
+}
+
+@font-face {
+	font-family: slick;
+	src: url(fonts/slick.eot);
+	src: url(fonts/slick.eot?#iefix) format("embedded-opentype"), url(fonts/slick.woff) format("woff"), url(fonts/slick.ttf) format("truetype"), url(images/f97e3bbf73254b0112091d0192f17aec.svg#slick) format("svg");
+	font-weight: 400;
+	font-style: normal
+}
+
+.slick-next,
+.slick-prev {
+	position: absolute;
+	display: block;
+	height: 20px;
+	width: 20px;
+	line-height: 0;
+	font-size: 0;
+	cursor: pointer;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 0;
+	border: none
+}
+
+.slick-next,
+.slick-next:focus,
+.slick-next:hover,
+.slick-prev,
+.slick-prev:focus,
+.slick-prev:hover {
+	background: transparent;
+	color: transparent;
+	outline: none
+}
+
+.slick-next:focus:before,
+.slick-next:hover:before,
+.slick-prev:focus:before,
+.slick-prev:hover:before {
+	opacity: 1
+}
+
+.slick-next.slick-disabled:before,
+.slick-prev.slick-disabled:before {
+	opacity: .25
+}
+
+.slick-next:before,
+.slick-prev:before {
+	font-family: slick;
+	font-size: 20px;
+	line-height: 1;
+	color: #fff;
+	opacity: .75;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+
+.slick-prev {
+	left: -25px
+}
+
+[dir=rtl] .slick-prev {
+	left: auto;
+	right: -25px
+}
+
+.slick-prev:before {
+	content: "\2190"
+}
+
+[dir=rtl] .slick-prev:before {
+	content: "\2192"
+}
+
+.slick-next {
+	right: -25px
+}
+
+[dir=rtl] .slick-next {
+	left: -25px;
+	right: auto
+}
+
+.slick-next:before {
+	content: "\2192"
+}
+
+[dir=rtl] .slick-next:before {
+	content: "\2190"
+}
+
+.slick-dotted.slick-slider {
+	margin-bottom: 30px
+}
+
+.slick-dots {
+	position: absolute;
+	bottom: -25px;
+	list-style: none;
+	display: block;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	width: 100%
+}
+
+.slick-dots li {
+	position: relative;
+	display: inline-block;
+	margin: 0 5px;
+	padding: 0
+}
+
+.slick-dots li,
+.slick-dots li button {
+	height: 20px;
+	width: 20px;
+	cursor: pointer
+}
+
+.slick-dots li button {
+	border: 0;
+	background: transparent;
+	display: block;
+	outline: none;
+	line-height: 0;
+	font-size: 0;
+	color: transparent;
+	padding: 5px
+}
+
+.slick-dots li button:focus,
+.slick-dots li button:hover {
+	outline: none
+}
+
+.slick-dots li button:focus:before,
+.slick-dots li button:hover:before {
+	opacity: 1
+}
+
+.slick-dots li button:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "\2022";
+	width: 20px;
+	height: 20px;
+	font-family: slick;
+	font-size: 6px;
+	line-height: 20px;
+	text-align: center;
+	color: #000;
+	opacity: .25;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+
+.slick-dots li.slick-active button:before {
+	color: #000;
+	opacity: .75
+}
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block
+}
+
+body {
+	line-height: 1
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+blockquote,
+q {
+	quotes: none
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+	content: "";
+	content: none
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+@font-face {
+	font-family: FuturaStdHeavy;
+	src: url(fonts/FuturaStdHeavy.eot);
+	src: url(fonts/FuturaStdHeavy.eot) format("embedded-opentype"), url(fonts/FuturaStdHeavy.woff2) format("woff2"), url(fonts/FuturaStdHeavy.woff) format("woff"), url(fonts/FuturaStdHeavy.ttf) format("truetype")
+}
+
+@font-face {
+	font-family: MostardesignSofiaProBold;
+	src: url(fonts/MostardesignSofiaProBold.eot);
+	src: url(fonts/MostardesignSofiaProBold.eot) format("embedded-opentype"), url(fonts/MostardesignSofiaProBold.woff2) format("woff2"), url(fonts/MostardesignSofiaProBold.woff) format("woff"), url(fonts/MostardesignSofiaProBold.ttf) format("truetype")
+}
+
+@font-face {
+	font-family: MostardesignSofiaProLight;
+	src: url(fonts/MostardesignSofiaProLight.eot);
+	src: url(fonts/MostardesignSofiaProLight.eot) format("embedded-opentype"), url(fonts/MostardesignSofiaProLight.woff2) format("woff2"), url(fonts/MostardesignSofiaProLight.woff) format("woff"), url(fonts/MostardesignSofiaProLight.ttf) format("truetype")
+}
+
+@font-face {
+	font-family: MostardesignSofiaProRegular;
+	src: url(fonts/MostardesignSofiaProRegular.eot);
+	src: url(fonts/MostardesignSofiaProRegular.eot) format("embedded-opentype"), url(fonts/MostardesignSofiaProRegular.woff2) format("woff2"), url(fonts/MostardesignSofiaProRegular.woff) format("woff"), url(fonts/MostardesignSofiaProRegular.ttf) format("truetype")
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+
+body,
+html {
+	font-size: 16px;
+	font-family: MostardesignSofiaProRegular, Helvetica, sans-serif;
+	-webkit-font-variant-ligatures: none;
+	font-variant-ligatures: none;
+	background-color: #30b1ea
+}
+
+body.fixed-body,
+html.fixed-body {
+	overflow: hidden
+}
+
+sup {
+	vertical-align: super;
+	font-size: .4em
+}
+
+img {
+	display: block
+}
+
+.page {
+	width: 100%;
+	overflow: hidden;
+	padding: 71px 0 0
+}
+
+@media (min-width:768px) {
+	.page {
+		padding: 77px 0 0
+	}
+}
+
+.hide-desktop {
+	display: block
+}
+
+@media (min-width:768px) {
+	.hide-desktop {
+		display: block
+	}
+}
+
+@media (min-width:1024px) {
+	.hide-desktop {
+		display: none
+	}
+}
+
+.hide-mobile {
+	display: none
+}
+
+@media (min-width:768px) {
+	.hide-mobile {
+		display: none
+	}
+}
+
+@media (min-width:1024px) {
+	.hide-mobile {
+		display: block
+	}
+}
+
+.hide-mobile-only {
+	display: none
+}
+
+@media (min-width:768px) {
+	.hide-mobile-only {
+		display: block
+	}
+}
+
+@media (min-width:1024px) {
+	.hide-mobile-only {
+		display: block
+	}
+}
+
+.show-mobile-only {
+	display: block
+}
+
+@media (min-width:768px) {
+	.show-mobile-only {
+		display: none
+	}
+}
+
+@media (min-width:1024px) {
+	.show-mobile-only {
+		display: none
+	}
+}
+
+.navigation-container.small-nav .main-navigation {
+	background: linear-gradient(180deg, rgba(80, 80, 80, .25) 20%, hsla(0, 0%, 100%, 0) 90%);
+	padding-top: 18px;
+	padding-bottom: 18px
+}
+
+.navigation-container.small-nav .main-navigation .teavana-logo {
+	transform: scale(.73)
+}
+
+@media (min-width:768px) {
+	.navigation-container.small-nav .main-navigation .teavana-logo {
+		transform: scale(.77)
+	}
+}
+
+.navigation-container.small-nav .hamburguer {
+	top: 11px;
+	left: 18px;
+	transform: scale(.9)
+}
+
+.main-navigation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	background-color: #cc0;
+	-ms-flex-align: end;
+	align-items: flex-end;
+	width: 100%;
+	padding: 28px 17px 28px 21px;
+	transition: all .3s ease-out;
+	z-index: 100
+}
+
+@media (min-width:768px) {
+	.main-navigation {
+		padding: 28px 44px 28px 21px
+	}
+}
+
+@media (min-width:1024px) {
+	.main-navigation {
+		padding: 28px 84px;
+		-ms-flex-direction: row;
+		flex-direction: row
+	}
+}
+
+.main-navigation .teavana-logo {
+	width: 120px;
+	height: 18px;
+	transform: scale(1);
+	transform-origin: center center;
+	transition: transform .3s ease-out
+}
+
+.main-navigation .teavana-logo:hover {
+	opacity: .85
+}
+
+@media (min-width:768px) {
+	.main-navigation .teavana-logo {
+		width: 145px;
+		height: 21px
+	}
+}
+
+.main-navigation .main-menu li {
+	position: relative;
+	display: inline-block;
+	margin: 0 70px 0 0;
+	cursor: pointer
+}
+
+.main-navigation .main-menu li:last-child {
+	margin: 0
+}
+
+.main-navigation .main-menu li:hover .main-submenu {
+	display: block;
+	opacity: 1
+}
+
+.main-navigation .main-menu li:hover span {
+	color: #000
+}
+
+.main-navigation .main-menu span {
+	padding: 0 0 10px;
+	font-size: .938rem;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	letter-spacing: 1.2px;
+	color: #fff;
+	text-transform: uppercase;
+	transition: color .3s ease
+}
+
+.main-navigation .main-menu span.active,
+.main-navigation .main-menu span:hover {
+	color: #000
+}
+
+.main-navigation .main-menu a {
+	font-size: .938rem;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	letter-spacing: 1.2px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: color .3s ease
+}
+
+.main-navigation .main-menu a:hover {
+	color: #000
+}
+
+.main-navigation .main-menu a:active {
+	border-bottom: 1px solid #000
+}
+
+.main-navigation .main-menu a.active {
+	color: #000
+}
+
+.main-navigation .main-menu a.active:hover {
+	border-bottom: 1px solid #000
+}
+
+.main-navigation .main-submenu {
+	display: none;
+	opacity: 0;
+	position: absolute;
+	top: 44px;
+	left: -140%;
+	width: 208px;
+	background-color: #fff;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+	transform: translateX(25%);
+	transition: .3s ease-out
+}
+
+.main-navigation .main-submenu:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -19px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 19px
+}
+
+.main-navigation .main-submenu:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -19px;
+	left: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	margin: 0 auto;
+	border-style: solid;
+	border-width: 0 15px 19px;
+	border-color: transparent transparent #fff
+}
+
+.main-navigation .main-submenu li {
+	width: 100%;
+	margin: 0;
+	border: none
+}
+
+.main-navigation .main-submenu li a {
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	padding: 17px 12px 16px;
+	font-size: .875rem;
+	color: #000;
+	width: 100%;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.main-navigation .main-submenu li a:hover {
+	background-color: #f6f6f6
+}
+
+.main-navigation .main-submenu li a:active {
+	border: none
+}
+
+.main-navigation .main-submenu li a p {
+	line-height: 1;
+	margin-top: 2px
+}
+
+.main-navigation .main-submenu li a .submenu-icon {
+	display: inline-block;
+	margin: 0 16px 0 0;
+	text-align: center;
+	min-width: 21px
+}
+
+.main-navigation .main-submenu li a .submenu-icon img {
+	display: inline-block
+}
+
+.hamburguer {
+	position: fixed;
+	width: 33px;
+	height: 28px;
+	top: 22px;
+	left: 21px;
+	z-index: 200;
+	transition: all .3s ease;
+	cursor: pointer
+}
+
+.hamburguer.open:after {
+	content: "";
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 73px;
+	background-color: #cc0;
+	top: 0;
+	left: 0;
+	z-index: -1
+}
+
+.hamburguer .hamburguer-lines-container {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 33px;
+	height: 28px;
+	transition: all .3s ease
+}
+
+.hamburguer .hamburguer-lines-container.open .lines {
+	background: transparent
+}
+
+.hamburguer .hamburguer-lines-container.open .lines:before {
+	transform: rotate(-45deg) translate(-8px, 8px)
+}
+
+.hamburguer .hamburguer-lines-container.open .lines:after {
+	transform: rotate(45deg) translate(-8px, -8px)
+}
+
+.hamburguer .lines {
+	top: 12px
+}
+
+.hamburguer .lines,
+.hamburguer .lines:after,
+.hamburguer .lines:before {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 4px;
+	background-color: #fff
+}
+
+.hamburguer .lines:after,
+.hamburguer .lines:before {
+	content: "";
+	transition: all .3s ease
+}
+
+.hamburguer .lines:before {
+	top: -12px
+}
+
+.hamburguer .lines:after {
+	top: 12px
+}
+
+.main-menu-mobile {
+	position: fixed;
+	top: 0;
+	left: -105%;
+	width: 100%;
+	height: 100vh;
+	background-color: #cc0;
+	z-index: 150;
+	transition: all .3s ease-out
+}
+
+.main-menu-mobile.main-menu-mobile--open {
+	left: 0
+}
+
+.main-menu-mobile .has-icon {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.main-menu-mobile .has-icon .submenu-icon {
+	display: inline-block;
+	text-align: center;
+	min-width: 21px
+}
+
+.main-menu-mobile .has-icon .submenu-icon img {
+	display: inline-block
+}
+
+.main-menu-mobile .has-icon span {
+	margin: 4px 0 0 10px
+}
+
+.main-menu-mobile .second-level-menu li.has-submenu {
+	padding-top: 5px
+}
+
+.main-menu-mobile .second-level-menu li.has-submenu .toggle {
+	font-size: .75rem;
+	padding-left: 35px
+}
+
+@media (min-width:768px) {
+	.main-menu-mobile .second-level-menu li.has-submenu .toggle {
+		font-size: 1.563rem
+	}
+}
+
+.main-menu-mobile .third-level-menu li {
+	padding-top: 5px;
+	padding-bottom: 5px
+}
+
+.main-menu-mobile .third-level-menu li:after {
+	top: 17px
+}
+
+.main-menu-mobile .third-level-menu li a {
+	text-transform: capitalize;
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	color: #000;
+	padding: 10px 15px 10px 40px;
+	letter-spacing: .1em
+}
+
+.main-menu-mobile ul {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 80px 0 0;
+	overflow-y: scroll
+}
+
+.main-menu-mobile ul .inner {
+	background-color: rgba(0, 0, 0, .05);
+	height: auto;
+	padding: 0;
+	margin: 0 0 -6px -15px;
+	width: calc(100%+ 15px)
+}
+
+.main-menu-mobile li {
+	position: relative;
+	margin: 0;
+	padding: 10px 0 6px 15px
+}
+
+.main-menu-mobile li:after {
+	content: "";
+	position: absolute;
+	top: 19px;
+	right: 24px;
+	width: 7px;
+	height: 10px;
+	background-image: url(images/67551dcc37256d8a957226e55cfe5364.svg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: 50%
+}
+
+@media (min-width:768px) {
+	.main-menu-mobile li:after {
+		top: 20px;
+		right: 24px;
+		width: 12px;
+		height: 17px
+	}
+}
+
+.main-menu-mobile li a {
+	display: block;
+	text-transform: uppercase;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	color: #fff;
+	font-size: .875em;
+	letter-spacing: 3.41px;
+	text-decoration: none;
+	padding: 10px 0
+}
+
+@media (min-width:768px) {
+	.main-menu-mobile li a {
+		font-size: 1.688em;
+		letter-spacing: 3.41px
+	}
+}
+
+.main-menu-mobile li.has-submenu {
+	padding-left: 0
+}
+
+.main-menu-mobile li.has-submenu:after {
+	display: none
+}
+
+.main-menu-mobile li.has-submenu .toggle {
+	padding-left: 15px
+}
+
+.main-menu-mobile li.has-submenu .inner {
+	padding-left: 20px
+}
+
+.main-menu-mobile li .toggle {
+	position: relative
+}
+
+.main-menu-mobile li .toggle:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 24px;
+	width: 10px;
+	height: 10px;
+	background-image: url(images/6866a879565a8410bacc8316e96462e8.svg);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: contain;
+	transform: translateY(-50%)
+}
+
+@media (min-width:768px) {
+	.main-menu-mobile li .toggle:after {
+		width: 17px;
+		height: 17px;
+		right: 22px
+	}
+}
+
+.main-menu-mobile li .toggle.toggle-open:after {
+	background-image: url(images/5f82c42ca06986b56670b302b2c3c4e8.svg)
+}
+
+.main-menu-mobile li .inner {
+	overflow: hidden;
+	display: none
+}
+
+.main-menu-mobile li .inner li a.long-name {
+	max-width: calc(100% - 30px)
+}
+
+.main-menu-mobile li .inner .toggle:after {
+	right: 24px
+}
+
+.main-footer nav {
+	display: block
+}
+
+@media (min-width:768px) {
+	.main-footer nav {
+		display: -ms-flexbox;
+		display: flex
+	}
+}
+
+.main-footer nav .footer-left-menu,
+.main-footer nav .footer-right-menu {
+	-ms-flex-preferred-size: 50%;
+	flex-basis: 50%;
+	color: #000
+}
+
+.main-footer nav .footer-left-menu {
+	background-color: #cc0
+}
+
+@media (min-width:768px) {
+	.main-footer nav .footer-left-menu {
+		padding: 0 0 53px 50px
+	}
+}
+
+@media (min-width:1024px) {
+	.main-footer nav .footer-left-menu {
+		padding: 0 0 37px 126px
+	}
+}
+
+.main-footer nav .footer-right-menu {
+	background-color: #efdb3e
+}
+
+@media (min-width:768px) {
+	.main-footer nav .footer-right-menu {
+		padding: 52px 0 35px 35px
+	}
+}
+
+@media (min-width:1024px) {
+	.main-footer nav .footer-right-menu {
+		padding: 56px 0 35px 60px
+	}
+}
+
+.main-footer nav .footer-right-menu h4 {
+	letter-spacing: 3.41px;
+	color: #000;
+	text-transform: uppercase;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .875rem;
+	margin: 0 0 27px
+}
+
+.main-footer nav .footer-right-menu h4 a {
+	color: #000;
+	position: relative;
+	text-decoration: none
+}
+
+.main-footer nav .footer-right-menu h4 a:after {
+	content: "";
+	position: absolute;
+	top: 1px;
+	right: -22px;
+	width: 10px;
+	height: 10px;
+	background-image: url(images/6decd35608afec4d0df6e4fd259f80fb.svg);
+	background-repeat: no-repeat;
+	background-position: 50%
+}
+
+@media (min-width:768px) {
+	.main-footer nav .footer-right-menu.our-teas-menu-desktop {
+		display: -ms-flexbox;
+		display: flex
+	}
+}
+
+@media (min-width:768px) {
+	.main-footer nav .footer-right-menu.our-teas-menu-desktop>div {
+		-ms-flex-preferred-size: 50%;
+		flex-basis: 50%;
+		max-width: 50%
+	}
+}
+
+@media (min-width:768px) {
+	.main-footer nav .footer-right-menu.our-teas-menu-desktop>div:last-child {
+		padding: 0 0 0 20px
+	}
+}
+
+@media (min-width:768px) {
+	.main-footer nav .footer-desktop-menu {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-direction: column;
+		flex-direction: column
+	}
+}
+
+.main-footer nav .footer-desktop-menu li {
+	padding: 10px 0
+}
+
+.main-footer nav .footer-desktop-menu li a {
+	text-decoration: none;
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	font-size: .75rem;
+	color: #000;
+	line-height: 15px;
+	letter-spacing: .82px
+}
+
+.main-footer nav .footer-desktop-menu li a:hover {
+	text-decoration: underline
+}
+
+.main-footer nav .footer-left-menu-links {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: start;
+	align-items: flex-start
+}
+
+.main-footer nav .footer-left-menu-link {
+	display: none;
+	position: relative;
+	color: #000;
+	text-decoration: none;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .875rem;
+	letter-spacing: 3.41px;
+	text-transform: uppercase
+}
+
+@media (min-width:768px) {
+	.main-footer nav .footer-left-menu-link {
+		display: inline-block;
+		margin: 30px 0 0
+	}
+}
+
+.main-footer nav .footer-left-menu-link:first-child {
+	margin: 0
+}
+
+.main-footer nav .footer-left-menu-link:after {
+	content: "";
+	position: absolute;
+	top: 1px;
+	right: -26px;
+	width: 10px;
+	height: 10px;
+	background-image: url(images/6decd35608afec4d0df6e4fd259f80fb.svg);
+	background-repeat: no-repeat;
+	background-position: 50%
+}
+
+.main-footer nav .subscribe-section {
+	display: none;
+	margin: 0 0 40px
+}
+
+.main-footer nav .subscribe-section h4 {
+	font-family: FuturaStdHeavy, Helvetica, sans-serif;
+	font-size: .875rem;
+	letter-spacing: 3.17px;
+	text-transform: uppercase;
+	margin: 0 0 10px
+}
+
+.main-footer nav .subscribe-section .subscribe-form {
+	display: -ms-flexbox;
+	display: flex
+}
+
+.main-footer nav .subscribe-section input[type=text] {
+	display: inline-block;
+	width: 240px;
+	height: 36px;
+	font-size: 1rem;
+	box-shadow: none;
+	border: 1px solid #9b9b9b;
+	padding: 8px 10px;
+	margin: 0 10px 0 0
+}
+
+@media (min-width:1024px) {
+	.main-footer nav .subscribe-section input[type=text] {
+		width: 295px
+	}
+}
+
+.main-footer nav .subscribe-section .subscribe-cta {
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	background-color: #000;
+	background-image: url(images/fee9e5a8b28cab57a7f36a47e2880155.svg);
+	background-repeat: no-repeat;
+	background-position: 50%
+}
+
+.social-menu {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 26px 12px;
+	background-color: #cc0
+}
+
+@media (min-width:768px) {
+	.social-menu {
+		padding: 26px 0 50px
+	}
+}
+
+.social-menu li {
+	margin: 0 20px 0 0
+}
+
+@media (min-width:768px) {
+	.social-menu li {
+		margin: 0 43px 0 0
+	}
+}
+
+@media (min-width:1024px) {
+	.social-menu li {
+		margin: 0 56px 0 0
+	}
+}
+
+.social-menu li:hover {
+	opacity: .85
+}
+
+.our-teas-menu-mobile .footer-mobile-menu li.has-submenu:after {
+	display: none
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li {
+	position: relative;
+	text-transform: uppercase;
+	background-color: #fff;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #9b9b9b;
+	border-right: 1px solid #9b9b9b;
+	color: #000;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .875rem
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li .toggle {
+	position: relative
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li .toggle:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 28px;
+	width: 10px;
+	height: 10px;
+	background-image: url(images/340e70ee95479f5ab0b9d7d6e3b6610d.svg);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	transform: translateY(-50%)
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li .toggle.toggle-open:after {
+	background-image: url(images/7f5af0ae9486396cbed7a13f4556cee9.svg)
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li .inner {
+	overflow: hidden;
+	display: none
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li .inner .toggle:after {
+	right: 16px
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li:after {
+	content: "";
+	position: absolute;
+	top: 16px;
+	right: 28px;
+	width: 10px;
+	height: 10px;
+	background-image: url(images/6decd35608afec4d0df6e4fd259f80fb.svg);
+	background-repeat: no-repeat;
+	background-position: 50%
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li span {
+	display: block;
+	padding: 16px 12px;
+	letter-spacing: 3.41px;
+	line-height: 13px
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li a {
+	display: block;
+	padding: 16px 12px;
+	text-decoration: none;
+	color: #000;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .875rem
+}
+
+.our-teas-menu-mobile .footer-mobile-menu>li>a {
+	letter-spacing: 3.41px;
+	line-height: 13px;
+	font-size: .875rem
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu {
+	background-color: #f6f6f6;
+	border-top: 1px solid #000
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu .has-icon {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu .has-icon .submenu-icon {
+	display: inline-block;
+	text-align: center;
+	min-width: 21px
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu .has-icon .submenu-icon img {
+	display: inline-block
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu .has-icon span {
+	display: inline-block;
+	padding: 0;
+	line-height: 1;
+	letter-spacing: inherit;
+	margin: 4px 0 0 10px
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu>li {
+	position: relative;
+	padding: 0 12px
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu>li:after {
+	content: "";
+	position: absolute;
+	top: 21px;
+	right: 26px;
+	width: 10px;
+	height: 10px;
+	background-image: url(images/6decd35608afec4d0df6e4fd259f80fb.svg);
+	background-repeat: no-repeat
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu>li:first-child:after {
+	top: 25px
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu>li:first-child a {
+	padding: 24px 0 20px 34px
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu>li:first-child:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: linear-gradient(0deg, transparent 0, rgba(0, 0, 0, .2) 200%)
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu>li:last-child:before {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .2) 200%)
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-submenu>li a {
+	display: block;
+	padding: 20px 0 20px 34px;
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	text-transform: capitalize
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-thirdmenu {
+	border: none;
+	margin: 0 -12px;
+	background-color: #eaeaea
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-thirdmenu>li {
+	padding: 0 24px
+}
+
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-thirdmenu>li:first-child:before,
+.our-teas-menu-mobile .footer-mobile-menu .footer-mobile-thirdmenu>li:last-child:before {
+	display: none
+}
+
+.copyright {
+	font-size: .625rem;
+	color: #9b9b9b;
+	background-color: #000;
+	padding: 14px 0 20px 10px
+}
+
+.copyright p {
+	max-width: 220px
+}
+
+@media (min-width:768px) {
+	.copyright p {
+		max-width: none
+	}
+}
+
+.copyright p a {
+	color: #9b9b9b;
+	text-decoration: none
+}
+
+.copyright p a:hover {
+	text-decoration: underline
+}
+
+.outline-btn {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	border: 2px solid #fff;
+	font-size: .938rem;
+	letter-spacing: 1.2px;
+	color: #fff;
+	text-decoration: none;
+	padding: 14px 23px 10px;
+	text-transform: uppercase;
+	transition: all .3s ease-out
+}
+
+.outline-btn:hover {
+	opacity: .5
+}
+
+.arrow-right-btn {
+	width: 20px;
+	height: 20px
+}
+
+@media (min-width:768px) {
+	.arrow-right-btn {
+		width: 30px;
+		height: 30px
+	}
+}
+
+.arrow-right-btn.arrow-right-btn--right {
+	margin-right: 2px
+}
+
+@media (min-width:768px) {
+	.arrow-right-btn.arrow-right-btn--right {
+		margin-right: 7px
+	}
+}
+
+@media (min-width:1024px) {
+	.arrow-right-btn.arrow-right-btn--right {
+		margin-right: 10px
+	}
+}
+
+.home-hero {
+	position: relative;
+	display: block
+}
+
+.home-hero .home-carousel .slick-dots {
+	bottom: 25px
+}
+
+.home-hero .home-carousel .slick-dots button,
+.home-hero .home-carousel .slick-dots li {
+	width: 8px;
+	height: 8px
+}
+
+.home-hero .home-carousel .slick-dots button:before {
+	content: "";
+	background-color: #fff;
+	opacity: .5;
+	border-radius: 50%;
+	width: 8px;
+	height: 8px
+}
+
+.home-hero .home-carousel .slick-dots .slick-active button:before {
+	background-color: #fff;
+	opacity: 1
+}
+
+.home-hero .home-carousel-slide {
+	position: relative;
+	background-position: 50%;
+	background-size: cover;
+	background-repeat: no-repeat
+}
+
+.home-hero .home-carousel-slide.first-slide {
+	background: linear-gradient(90deg, #2d90a0 0, #319daa 25%, #35a9b4 50%, #3ab4c3 75%, #3fb9c8)
+}
+
+.home-hero .home-carousel-slide.second-slide {
+	background: linear-gradient(90deg, #7cc6ad 0, #82ccb3 25%, #83ccb1 50%, #77c7ac 70%, #6cbca3)
+}
+
+.home-hero .home-hero_content {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: end;
+	align-items: flex-end;
+	max-width: 320px;
+	text-align: center;
+	margin: 0 auto 44px;
+	transition: all .3s ease;
+	padding: 33px 0 32px
+}
+
+@media (min-width:768px) {
+	.home-hero .home-hero_content {
+		text-align: right;
+		max-width: none;
+		margin: 0 72px 64px 0;
+		padding: 31px 0 30px
+	}
+}
+
+@media (min-width:1024px) {
+	.home-hero .home-hero_content {
+		position: absolute;
+		top: 62px;
+		right: 2vw;
+		margin: 0;
+		padding: 0
+	}
+}
+
+@media (min-width:1460px) {
+	.home-hero .home-hero_content {
+		right: 4.4vw
+	}
+}
+
+.home-hero .home-hero_content.home-hero_content--long-title {
+	padding: 0 0 30px
+}
+
+@media (min-width:768px) {
+	.home-hero .home-hero_content.home-hero_content--long-title {
+		max-width: 500px;
+		float: right;
+		padding: 0 0 3px
+	}
+}
+
+@media (min-width:1024px) {
+	.home-hero .home-hero_content.home-hero_content--long-title {
+		float: none;
+		max-width: none;
+		padding: 0
+	}
+}
+
+.home-hero .home-hero_cta {
+	margin: 0 auto
+}
+
+@media (min-width:768px) {
+	.home-hero .home-hero_cta {
+		margin: 0
+	}
+}
+
+.home-hero .home-hero__title {
+	color: #c06;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 2.2rem;
+	margin: 0 0 21px
+}
+
+@media (min-width:768px) {
+	.home-hero .home-hero__title {
+		font-size: 3.6rem
+	}
+}
+
+.home-hero .home-hero__title.home-hero__title--small {
+	font-size: 1.6rem
+}
+
+@media (min-width:768px) {
+	.home-hero .home-hero__title.home-hero__title--small {
+		font-size: 3.3rem
+	}
+}
+
+@media (min-width:1024px) {
+	.home-hero .home-hero__title.home-hero__title--small {
+		font-size: 3.6rem
+	}
+}
+
+.home-hero .home-hero_text {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	color: #fff;
+	margin-bottom: 33px;
+	padding: 0 15px;
+	text-align: center;
+	line-height: 1.5rem;
+	font-size: 1.1rem
+}
+
+@media (min-width:768px) {
+	.home-hero .home-hero_text {
+		line-height: 1.75rem;
+		font-size: 1.25rem;
+		padding: 0;
+		text-align: right;
+		max-width: 480px
+	}
+}
+
+@media (min-width:1024px) {
+	.home-hero .home-hero_text {
+		max-width: 300px
+	}
+}
+
+.home-hero .home-hero_hero-image {
+	-o-object-fit: cover;
+	object-fit: cover;
+	width: 100%
+}
+
+.home-hero .home-hero_hero-image-container {
+	width: 100%;
+	height: 30vh;
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover
+}
+
+@media (min-width:768px) {
+	.home-hero .home-hero_hero-image-container {
+		height: calc(100vh - 80px)
+	}
+}
+
+.drink-section {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	transition: all .3s ease-out;
+	max-width: 1372px;
+	margin: 0 auto
+}
+
+.drink-section.drink-section--right {
+	padding: 53px 0 51px 10px
+}
+
+@media (min-width:768px) {
+	.drink-section.drink-section--right {
+		padding: 71px 0 86px 10px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section.drink-section--right {
+		padding: 66px 0 66px 130px
+	}
+}
+
+.drink-section.drink-section--right .drink-section_content {
+	right: 10vw
+}
+
+@media (min-width:768px) {
+	.drink-section.drink-section--right .drink-section_content {
+		right: 8vw
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section.drink-section--right .drink-section_content {
+		right: 5vw
+	}
+}
+
+.drink-section.drink-section--right .drink-section_text {
+	text-align: right
+}
+
+.drink-section.drink-section--left {
+	padding: 53px 10px 51px 0
+}
+
+@media (min-width:768px) {
+	.drink-section.drink-section--left {
+		padding: 71px 10px 86px 0
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section.drink-section--left {
+		padding: 66px 130px 66px 0
+	}
+}
+
+.drink-section.drink-section--left .drink-section_content {
+	left: 10vw
+}
+
+@media (min-width:768px) {
+	.drink-section.drink-section--left .drink-section_content {
+		left: 8vw
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section.drink-section--left .drink-section_content {
+		left: 5vw
+	}
+}
+
+.drink-section.drink-section--left .drink-section_text {
+	text-align: left
+}
+
+.drink-section.drink-section--second-section {
+	-ms-flex-direction: row-reverse;
+	flex-direction: row-reverse
+}
+
+.drink-section.drink-section--second-section .drink-section_peach-image {
+	position: absolute;
+	top: -20px;
+	left: -30px;
+	max-width: 77px;
+	transition: left .3s ease, right .3s ease
+}
+
+@media (min-width:480px) {
+	.drink-section.drink-section--second-section .drink-section_peach-image {
+		top: -20px;
+		left: -50px;
+		max-width: 117px
+	}
+}
+
+@media (min-width:768px) {
+	.drink-section.drink-section--second-section .drink-section_peach-image {
+		top: 50px;
+		left: -65px;
+		max-width: 153px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section.drink-section--second-section .drink-section_peach-image {
+		top: 50px;
+		left: -105px;
+		max-width: 200px
+	}
+}
+
+.drink-section.drink-section--second-section .drink-section_mint-image {
+	position: absolute;
+	bottom: 50px;
+	right: -25px;
+	max-width: 78px;
+	transition: left .3s ease, right .3s ease
+}
+
+@media (min-width:480px) {
+	.drink-section.drink-section--second-section .drink-section_mint-image {
+		bottom: 50px;
+		right: -55px;
+		max-width: 118px
+	}
+}
+
+@media (min-width:768px) {
+	.drink-section.drink-section--second-section .drink-section_mint-image {
+		bottom: 50px;
+		right: -45px;
+		max-width: 138px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section.drink-section--second-section .drink-section_mint-image {
+		bottom: 50px;
+		right: -85px;
+		max-width: 184px
+	}
+}
+
+.drink-section.drink-section--second-section .drink-section_mango-image {
+	position: absolute;
+	top: -50px;
+	left: -60px;
+	max-width: 106px;
+	transition: left .3s ease, right .3s ease
+}
+
+@media (min-width:480px) {
+	.drink-section.drink-section--second-section .drink-section_mango-image {
+		top: -50px;
+		left: -80px;
+		max-width: 144px
+	}
+}
+
+@media (min-width:768px) {
+	.drink-section.drink-section--second-section .drink-section_mango-image {
+		top: 50px;
+		left: -95px;
+		max-width: 184px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section.drink-section--second-section .drink-section_mango-image {
+		top: 50px;
+		left: -140px;
+		max-width: 268px
+	}
+}
+
+.drink-section.drink-section--second-section .drink-section_lime-image {
+	position: absolute;
+	bottom: 40px;
+	right: -30px;
+	max-width: 63px;
+	transition: left .3s ease, right .3s ease
+}
+
+@media (min-width:480px) {
+	.drink-section.drink-section--second-section .drink-section_lime-image {
+		bottom: 40px;
+		right: -40px;
+		max-width: 90px
+	}
+}
+
+@media (min-width:768px) {
+	.drink-section.drink-section--second-section .drink-section_lime-image {
+		bottom: 50px;
+		right: -55px;
+		max-width: 124px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section.drink-section--second-section .drink-section_lime-image {
+		bottom: 50px;
+		right: -85px;
+		max-width: 150px
+	}
+}
+
+.drink-section .drink-section_bottle-image-container {
+	position: relative
+}
+
+.drink-section .drink-section_bottle-image-wrapper {
+	position: relative;
+	overflow: hidden
+}
+
+.drink-section .drink-section_bottle-image-animation {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 300%;
+	height: 100%;
+	animation: a 3s steps(1) infinite
+}
+
+@keyframes a {
+	0% {
+		left: 0
+	}
+	33% {
+		left: -100%
+	}
+	66% {
+		left: -200%
+	}
+	to {
+		left: 0
+	}
+}
+
+.drink-section .drink-section_bottle-image {
+	width: 100%
+}
+
+.drink-section .drink-section_bottle-image.drink-section_bottle-image--first-section {
+	max-width: 227px
+}
+
+@media (min-width:480px) {
+	.drink-section .drink-section_bottle-image.drink-section_bottle-image--first-section {
+		max-width: 300px
+	}
+}
+
+@media (min-width:768px) {
+	.drink-section .drink-section_bottle-image.drink-section_bottle-image--first-section {
+		max-width: 433px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section .drink-section_bottle-image.drink-section_bottle-image--first-section {
+		max-width: 545px
+	}
+}
+
+.drink-section .drink-section_bottle-image.drink-section_bottle-image--first-section.hide-placeholder {
+	opacity: 0
+}
+
+.drink-section .drink-section_bottle-image.drink-section_bottle-image--second-section {
+	max-width: 226px
+}
+
+@media (min-width:480px) {
+	.drink-section .drink-section_bottle-image.drink-section_bottle-image--second-section {
+		max-width: 300px
+	}
+}
+
+@media (min-width:768px) {
+	.drink-section .drink-section_bottle-image.drink-section_bottle-image--second-section {
+		max-width: 498px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section .drink-section_bottle-image.drink-section_bottle-image--second-section {
+		max-width: 549px
+	}
+}
+
+.drink-section .drink-section_content {
+	position: absolute;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	top: 40%;
+	height: 100%;
+	width: 210px;
+	transition: all .3s ease-out
+}
+
+@media (min-width:480px) {
+	.drink-section .drink-section_content {
+		top: 24%;
+		width: 360px
+	}
+}
+
+@media (min-width:768px) {
+	.drink-section .drink-section_content {
+		top: 35%;
+		width: 430px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section .drink-section_content {
+		top: 30%;
+		width: 640px
+	}
+}
+
+.drink-section .drink-section_content.drink-section_content--right,
+.drink-section .drink-section_content.drink-section_content--right .drink-section-cta {
+	-ms-flex-align: end;
+	align-items: flex-end
+}
+
+.drink-section-cta {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	text-decoration: none;
+	margin: 0 0 30px
+}
+
+@media (min-width:768px) {
+	.drink-section-cta {
+		margin: 0 0 36px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section-cta {
+		margin: 0 0 55px
+	}
+}
+
+.drink-section-cta .arrow-right-btn #arrow-button-arrow {
+	transition: fill .3s ease-out
+}
+
+.drink-section-cta .arrow-right-btn #arrow-button-border {
+	transition: stroke .3s ease-out
+}
+
+.drink-section-cta .arrow-right-btn svg {
+	width: 100%
+}
+
+.drink-section-cta:visited .arrow-right-btn #arrow-button-arrow {
+	fill: #fff
+}
+
+.drink-section-cta:visited .arrow-right-btn #arrow-button-border {
+	stroke: #fff
+}
+
+.drink-section-cta:visited p {
+	color: #fff
+}
+
+@media (min-width:1024px) {
+	.drink-section-cta:active .arrow-right-btn #arrow-button-arrow,
+	.drink-section-cta:active .arrow-right-btn #arrow-button-border,
+	.drink-section-cta:active>img,
+	.drink-section-cta:active p,
+	.drink-section-cta:hover .arrow-right-btn #arrow-button-arrow,
+	.drink-section-cta:hover .arrow-right-btn #arrow-button-border,
+	.drink-section-cta:hover>img,
+	.drink-section-cta:hover p {
+		opacity: .5
+	}
+}
+
+.drink-section-cta.drink-section-cta--center {
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.drink-section-cta p {
+	color: #fff;
+	transition: all .3s ease-out
+}
+
+.drink-section-decor-container {
+	position: relative
+}
+
+.drink-section-decor-container:before {
+	content: "";
+	position: absolute;
+	top: -18px;
+	left: 0;
+	width: 39px;
+	height: 6px;
+	background-color: #f30
+}
+
+@media (min-width:768px) {
+	.drink-section-decor-container:before {
+		width: 70px;
+		height: 10px;
+		top: -35px
+	}
+}
+
+.drink-section-decor-container.drink-section-decor--red:before {
+	background-color: #f30
+}
+
+.drink-section-decor-container.drink-section-decor--orange:before {
+	background-color: #ff704d
+}
+
+.drink-section-decor-container.drink-section-decor--purple:before {
+	background-color: #c06
+}
+
+.drink-section-decor-container.drink-section-decor--mint:before {
+	background-color: #75e1c2
+}
+
+.drink-section-decor-container.drink-section-decor--right:before {
+	left: inherit;
+	right: 0
+}
+
+@media (min-width:768px) {
+	.drink-section-decor-container.drink-section-decor--right:before {
+		right: 6px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section-decor-container.drink-section-decor--right:before {
+		right: 10px
+	}
+}
+
+.drink-section-decor-container.drink-section-decor--center:before {
+	left: 0;
+	right: 0;
+	margin: 0 auto
+}
+
+.drink-section_text {
+	color: #fff;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	line-height: 28px;
+	letter-spacing: 1.67px;
+	font-size: 1.563rem;
+	margin-bottom: 12px;
+	z-index: 2
+}
+
+@media (min-width:480px) {
+	.drink-section_text {
+		line-height: 66px;
+		letter-spacing: 4.17px;
+		font-size: 3.125rem;
+		margin-bottom: 35px
+	}
+}
+
+@media (min-width:768px) {
+	.drink-section_text {
+		line-height: 66px;
+		letter-spacing: 4.17px;
+		font-size: 3.125rem;
+		margin-bottom: 35px
+	}
+}
+
+@media (min-width:1024px) {
+	.drink-section_text {
+		line-height: 95px;
+		letter-spacing: 6.67px;
+		font-size: 5rem;
+		margin-bottom: 40px
+	}
+}
+
+.drink-section_text.drink-section_text--center {
+	text-align: center
+}
+
+.standard-section {
+	height: 456px
+}
+
+@media (min-width:768px) {
+	.standard-section {
+		height: 538px
+	}
+}
+
+@media (min-width:1024px) {
+	.standard-section {
+		height: 810px
+	}
+}
+
+.standard-section .standard-section-content {
+	padding: 70px 34px;
+	max-width: 1372px;
+	margin: 0 auto
+}
+
+@media (min-width:768px) {
+	.standard-section .standard-section-content {
+		padding: 70px 63px
+	}
+}
+
+@media (min-width:1024px) {
+	.standard-section .standard-section-content {
+		padding: 70px 130px
+	}
+}
+
+.standard-section h1 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 3.75rem;
+	line-height: 3.75rem;
+	letter-spacing: 1.64px;
+	color: #c06
+}
+
+@media (min-width:768px) {
+	.standard-section h1 {
+		font-size: 5rem;
+		line-height: 90px;
+		letter-spacing: 2.34px
+	}
+}
+
+@media (min-width:1024px) {
+	.standard-section h1 {
+		font-size: 9.375rem;
+		line-height: 175px;
+		letter-spacing: 3.75px
+	}
+}
+
+.flavor-section {
+	height: 456px;
+	background-image: url(images/20662513c5efb311e5994ccf851f8a7e.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 70% bottom
+}
+
+@media (min-width:768px) {
+	.flavor-section {
+		height: 538px
+	}
+}
+
+@media (min-width:1024px) {
+	.flavor-section {
+		height: 810px;
+		background-position: 50%
+	}
+}
+
+@media (min-width:1375px) {
+	.flavor-section {
+		height: 90vh
+	}
+}
+
+.lifestyle-section {
+	height: 360px;
+	background-image: url(images/27e94eca78da5aec74ffefaa8207cc14.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top
+}
+
+@media (min-width:768px) {
+	.lifestyle-section {
+		height: auto
+	}
+}
+
+@media (min-width:1024px) {
+	.lifestyle-section {
+		background-position: 50%
+	}
+}
+
+.lifestyle-section .standard-section-content {
+	padding: 45px 24px
+}
+
+@media (min-width:768px) {
+	.lifestyle-section .standard-section-content {
+		padding: 130px 63px
+	}
+}
+
+@media (min-width:1024px) {
+	.lifestyle-section .standard-section-content {
+		padding: 160px 124px
+	}
+}
+
+.lifestyle-section .standard-section-content h1 {
+	color: #d5f0a2
+}
+
+.strawberry-section .strawberry-section-content {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	padding: 77px 0 110px;
+	max-width: 1372px;
+	margin: 0 auto
+}
+
+.strawberry-section .strawberry-bottle {
+	max-width: 226px
+}
+
+@media (min-width:480px) {
+	.strawberry-section .strawberry-bottle {
+		max-width: 300px
+	}
+}
+
+@media (min-width:768px) {
+	.strawberry-section .strawberry-bottle {
+		max-width: 497px
+	}
+}
+
+@media (min-width:1024px) {
+	.strawberry-section .strawberry-bottle {
+		max-width: 579px
+	}
+}
+
+.strawberry-section .strawberry-cta {
+	margin: 0 0 55px
+}
+
+.strawberry-section .drink-section_text:before {
+	background-color: #75e1c2
+}
+
+.lemons-section {
+	background-color: #fc3;
+	overflow: hidden
+}
+
+.lemons-section .lemons-section-content {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	padding: 70px 0 90px;
+	max-width: 1372px;
+	margin: 0 auto
+}
+
+.lemons-section .meyer-lemon-bottle {
+	opacity: 0;
+	width: 80px
+}
+
+@media (min-width:768px) {
+	.lemons-section .meyer-lemon-bottle {
+		width: 140px
+	}
+}
+
+.lemons-section .spin-bottle-container {
+	position: relative;
+	left: 4px;
+	overflow: hidden;
+	z-index: 2
+}
+
+.lemons-section .spin-bottle-container .meyer-lemon-bottle-spin {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1224%
+}
+
+.lemons-section .falling-lemon {
+	position: absolute
+}
+
+.lemons-section .falling-lemon-1 {
+	display: none;
+	transition: left .3s ease
+}
+
+@media (min-width:1024px) {
+	.lemons-section .falling-lemon-1 {
+		display: block;
+		width: 190px;
+		top: 658px;
+		left: -3vw
+	}
+}
+
+@media (min-width:1280px) {
+	.lemons-section .falling-lemon-1 {
+		display: block;
+		width: 190px;
+		top: 658px;
+		left: 49px
+	}
+}
+
+.lemons-section .falling-lemon-2 {
+	width: 97px;
+	top: 220px;
+	left: -12vw;
+	transition: left .3s ease
+}
+
+@media (min-width:480px) {
+	.lemons-section .falling-lemon-2 {
+		width: 127px
+	}
+}
+
+@media (min-width:768px) {
+	.lemons-section .falling-lemon-2 {
+		width: 186px;
+		top: 340px;
+		left: -12vw
+	}
+}
+
+@media (min-width:1024px) {
+	.lemons-section .falling-lemon-2 {
+		width: 202px;
+		top: 311px;
+		left: 10vw
+	}
+}
+
+@media (min-width:1280px) {
+	.lemons-section .falling-lemon-2 {
+		width: 202px;
+		top: 311px;
+		left: 207px
+	}
+}
+
+.lemons-section .falling-lemon-3 {
+	width: 88px;
+	top: 0;
+	left: 10vw;
+	transition: left .3s ease
+}
+
+@media (min-width:480px) {
+	.lemons-section .falling-lemon-3 {
+		width: 118px
+	}
+}
+
+@media (min-width:768px) {
+	.lemons-section .falling-lemon-3 {
+		width: 169px;
+		top: 0;
+		left: 10vw
+	}
+}
+
+@media (min-width:1024px) {
+	.lemons-section .falling-lemon-3 {
+		width: 184px;
+		top: -50px;
+		left: 28vw
+	}
+}
+
+@media (min-width:1280px) {
+	.lemons-section .falling-lemon-3 {
+		width: 184px;
+		top: -50px;
+		left: 325px
+	}
+}
+
+.lemons-section .falling-lemon-4 {
+	width: 88px;
+	top: 830px;
+	left: 3vw;
+	transition: left .3s ease
+}
+
+@media (min-width:480px) {
+	.lemons-section .falling-lemon-4 {
+		width: 118px
+	}
+}
+
+@media (min-width:768px) {
+	.lemons-section .falling-lemon-4 {
+		width: 169px;
+		top: 920px;
+		left: 14vw
+	}
+}
+
+@media (min-width:1024px) {
+	.lemons-section .falling-lemon-4 {
+		width: 184px;
+		top: 821px;
+		left: 30vw
+	}
+}
+
+@media (min-width:1280px) {
+	.lemons-section .falling-lemon-4 {
+		width: 184px;
+		top: 821px;
+		left: 393px
+	}
+}
+
+.lemons-section .falling-lemon-5 {
+	width: 92px;
+	top: 500px;
+	left: 25vw;
+	transition: left .3s ease
+}
+
+@media (min-width:480px) {
+	.lemons-section .falling-lemon-5 {
+		width: 122px
+	}
+}
+
+@media (min-width:768px) {
+	.lemons-section .falling-lemon-5 {
+		width: 177px;
+		top: 390px;
+		left: 24vw
+	}
+}
+
+@media (min-width:1024px) {
+	.lemons-section .falling-lemon-5 {
+		width: 192px;
+		top: 498px;
+		left: 60vw
+	}
+}
+
+@media (min-width:1280px) {
+	.lemons-section .falling-lemon-5 {
+		width: 192px;
+		top: 498px;
+		left: 755px
+	}
+}
+
+.lemons-section .falling-lemon-6 {
+	width: 91px;
+	top: 490px;
+	left: 66vw;
+	transition: left .3s ease
+}
+
+@media (min-width:480px) {
+	.lemons-section .falling-lemon-6 {
+		width: 121px
+	}
+}
+
+@media (min-width:768px) {
+	.lemons-section .falling-lemon-6 {
+		width: 175px;
+		top: 560px;
+		left: 70vw
+	}
+}
+
+@media (min-width:1024px) {
+	.lemons-section .falling-lemon-6 {
+		width: 190px;
+		top: 650px;
+		left: 74vw
+	}
+}
+
+@media (min-width:1280px) {
+	.lemons-section .falling-lemon-6 {
+		width: 190px;
+		top: 650px;
+		left: 926px
+	}
+}
+
+.lemons-section .falling-lemon-7 {
+	width: 97px;
+	top: 380px;
+	left: 72vw;
+	transition: left .3s ease
+}
+
+@media (min-width:480px) {
+	.lemons-section .falling-lemon-7 {
+		width: 127px
+	}
+}
+
+@media (min-width:768px) {
+	.lemons-section .falling-lemon-7 {
+		width: 186px;
+		top: 410px;
+		left: 60vw
+	}
+}
+
+@media (min-width:1024px) {
+	.lemons-section .falling-lemon-7 {
+		width: 202px;
+		top: 234px;
+		left: 80vw
+	}
+}
+
+@media (min-width:1280px) {
+	.lemons-section .falling-lemon-7 {
+		width: 202px;
+		top: 234px;
+		left: 1012px
+	}
+}
+
+.lemons-section .falling-lemon-8 {
+	width: 76px;
+	top: 480px;
+	left: 90vw;
+	transition: left .3s ease
+}
+
+@media (min-width:480px) {
+	.lemons-section .falling-lemon-8 {
+		width: 106px
+	}
+}
+
+@media (min-width:768px) {
+	.lemons-section .falling-lemon-8 {
+		width: 147px;
+		top: 549px;
+		left: 90vw
+	}
+}
+
+@media (min-width:1024px) {
+	.lemons-section .falling-lemon-8 {
+		width: 160px;
+		top: 549px;
+		left: 87vw
+	}
+}
+
+@media (min-width:1280px) {
+	.lemons-section .falling-lemon-8 {
+		width: 160px;
+		top: 549px;
+		left: 1096px
+	}
+}
+
+.unsweetend-tag {
+	display: block;
+	margin: 0 auto 10px;
+	width: 89px
+}
+
+@media (min-width:480px) {
+	.unsweetend-tag {
+		width: 150px
+	}
+}
+
+@media (min-width:1024px) {
+	.unsweetend-tag {
+		width: 197px
+	}
+}
+
+.category-page .hero-section {
+	background-color: #2cb4a8;
+	text-align: center;
+	padding: 70px 0
+}
+
+.category-page .hero-section.hero-teas-padding {
+	padding: 30px 0
+}
+
+.category-page .hero-section.hero-ocean-green {
+	background-color: #3ea97a
+}
+
+@media (min-width:768px) {
+	.category-page .hero-section {
+		padding: 110px 0
+	}
+	.category-page .hero-section.hero-teas-padding {
+		padding: 30px 0
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .hero-section {
+		height: 227px;
+		padding: 30px 0 0
+	}
+	.category-page .hero-section.hero-teas-padding {
+		padding: 30px 0 0
+	}
+}
+
+.category-page .hero-section h1 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 2.2rem;
+	letter-spacing: 1.67px;
+	line-height: 56px;
+	color: #fc3;
+	margin: 0 20px 20px
+}
+
+.category-page .hero-section h1.category-teas-cups {
+	line-height: 45px
+}
+
+@media (min-width:768px) {
+	.category-page .hero-section h1 {
+		font-size: 4.063rem;
+		letter-spacing: 2.71px;
+		line-height: 25px
+	}
+	.category-page .hero-section h1.category-teas-cups {
+		font-size: 3.125rem;
+		letter-spacing: 2.5px;
+		line-height: 90px
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .hero-section h1,
+	.category-page .hero-section h1.category-teas-cups {
+		font-size: 3.125rem;
+		letter-spacing: 2.5px;
+		line-height: 90px;
+		margin: 0
+	}
+}
+
+.category-page .hero-section h1.white-text-color {
+	color: #fff
+}
+
+.category-page .hero-section p {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	font-size: 1.125rem;
+	line-height: 25px;
+	color: #fff;
+	margin: 0 15%
+}
+
+@media (min-width:768px) {
+	.category-page .hero-section p {
+		margin: 0 27%
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .hero-section p {
+		font-size: 1.438rem;
+		line-height: 32px;
+		margin: 0 auto;
+		max-width: 670px
+	}
+}
+
+.category-page .tea-bottles-grid {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap
+}
+
+.category-page .tea-bottle-container--with-bkg-img {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	min-height: 300px
+}
+
+@media (min-width:768px) {
+	.category-page .tea-bottle-container--with-bkg-img {
+		min-height: 650px
+	}
+}
+
+@media (min-width:1280px) {
+	.category-page .tea-bottle-container--with-bkg-img {
+		min-height: 690px
+	}
+}
+
+.category-page .tea-bottle-container {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-preferred-size: 50%;
+	flex-basis: 50%;
+	max-width: 50%;
+	padding: 30px 0 53px
+}
+
+@media (min-width:768px) {
+	.category-page .tea-bottle-container {
+		padding: 65px 0 53px
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .tea-bottle-container {
+		-ms-flex-preferred-size: 33.3333%;
+		flex-basis: 33.3333%;
+		max-width: 33.3333%;
+		padding: 73px 0 53px
+	}
+}
+
+.category-page .tea-bottle-container .unsweetened-container {
+	width: 100%;
+	margin-top: -15px;
+	height: 15px
+}
+
+@media (min-width:768px) {
+	.category-page .tea-bottle-container .unsweetened-container {
+		margin-top: -30px;
+		height: 30px
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .tea-bottle-container .unsweetened-container {
+		margin-top: -40px;
+		height: 40px
+	}
+}
+
+.category-page .tea-bottle-container .unsweetened-img {
+	margin: 0 auto;
+	width: 63px
+}
+
+@media (min-width:768px) {
+	.category-page .tea-bottle-container .unsweetened-img {
+		width: 127px
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .tea-bottle-container .unsweetened-img {
+		width: 123px
+	}
+}
+
+.category-page .tea-bottle-container .tea-bottle-cta {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	text-decoration: none
+}
+
+.category-page .tea-bottle-container .tea-bottle-cta svg {
+	height: 13px;
+	width: 13px;
+	margin: 0 auto
+}
+
+@media (min-width:768px) {
+	.category-page .tea-bottle-container .tea-bottle-cta svg {
+		height: 26px;
+		width: 26px
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .tea-bottle-container .tea-bottle-cta svg {
+		height: 30px;
+		width: 30px
+	}
+}
+
+.category-page .tea-bottle-container .tea-bottle-cta:active h2,
+.category-page .tea-bottle-container .tea-bottle-cta:active svg,
+.category-page .tea-bottle-container .tea-bottle-cta:hover h2,
+.category-page .tea-bottle-container .tea-bottle-cta:hover svg {
+	opacity: 1
+}
+
+@media (min-width:768px) {
+	.category-page .tea-bottle-container .tea-bottle-cta:active h2,
+	.category-page .tea-bottle-container .tea-bottle-cta:active svg,
+	.category-page .tea-bottle-container .tea-bottle-cta:hover h2,
+	.category-page .tea-bottle-container .tea-bottle-cta:hover svg {
+		opacity: .5
+	}
+}
+
+.category-page .tea-bottle-container .tea-bottle-cta.cta-img-cups {
+	display: block;
+	position: relative;
+	margin-right: 0
+}
+
+.category-page .tea-bottle-container .tea-bottle-cta .header-tea-bag {
+	position: absolute;
+	right: -17%;
+	bottom: -13%;
+	width: 50%
+}
+
+.category-page .tea-bottle-container.tea-bottle-container--unsweetened {
+	padding: 25px 0 53px
+}
+
+.category-page .tea-bottle-container.tea-bottle-container--green {
+	background-color: #cccc2e
+}
+
+.category-page .tea-bottle-container.tea-bottle-container--pink {
+	background-color: #f4bfbb
+}
+
+.category-page .tea-bottle-container.tea-bottle-container--yellow {
+	background-color: #fdcb44
+}
+
+.category-page .tea-bottle-container.tea-bottle-container--orange {
+	background-color: #faa828
+}
+
+.category-page .tea-bottle-container.tea-bottle-container--red {
+	background-color: #ef444c
+}
+
+.category-page .tea-bottle-container.tea-bottle-container--blue {
+	background-color: #74cfec
+}
+
+.category-page .tea-bottle-container.tea-cup-container--hibiscus {
+	background-color: #b3296e
+}
+
+.category-page .tea-bottle-container.tea-cup-container--sunglow {
+	background-color: #fc3
+}
+
+.category-page .tea-bottle-container.tea-cup-container--tanHide {
+	background-color: #fc9247
+}
+
+.category-page .tea-bottle-container.tea-cup-container--steelBlue {
+	background-color: #4798b3
+}
+
+.category-page .tea-bottle-container.tea-cup-container--silverTree {
+	background-color: #59ac88
+}
+
+.category-page .tea-bottle-container.tea-cup-container--cannonPink {
+	background-color: #834779
+}
+
+.category-page .tea-bottle-container h2 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 1rem;
+	letter-spacing: 1.07px;
+	line-height: 20px;
+	color: #fff;
+	margin: 0 0 2px;
+	text-align: center;
+	min-height: 40px
+}
+
+@media (min-width:768px) {
+	.category-page .tea-bottle-container h2 {
+		font-size: 2.063rem;
+		line-height: 43px;
+		margin: 0 0 6px;
+		min-height: 86px
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .tea-bottle-container h2 {
+		font-size: 2.188rem;
+		letter-spacing: 2.33px;
+		line-height: 40px;
+		margin: 0 0 16px;
+		min-height: 80px
+	}
+}
+
+.category-page .tea-bottle-container img {
+	width: 100%
+}
+
+.category-page .tea-bottle-container .cta-img {
+	width: 46%;
+	max-width: 95px;
+	margin: 12px -2.2rem 0 0
+}
+
+@media (min-width:480px) {
+	.category-page .tea-bottle-container .cta-img {
+		margin: 12px -2.5rem 0 0
+	}
+}
+
+@media (min-width:768px) {
+	.category-page .tea-bottle-container .cta-img {
+		width: 48%;
+		max-width: 185px;
+		margin: 35px -4.8rem 0 0
+	}
+}
+
+@media (min-width:1024px) {
+	.category-page .tea-bottle-container .cta-img {
+		pointer-events: none;
+		max-width: 225px;
+		margin: 40px -4.2rem 0 0
+	}
+}
+
+@media (min-width:1280px) {
+	.category-page .tea-bottle-container .cta-img {
+		margin: 40px -5.8rem 0 0
+	}
+}
+
+.product-page .hero-section {
+	position: relative;
+	padding: 0
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section {
+		padding: 39px 0 95px 55px
+	}
+}
+
+@media (min-width:1280px) {
+	.product-page .hero-section {
+		padding: 39px 0 95px 137px
+	}
+}
+
+.product-page .hero-section.hero-section--blue {
+	background-color: #30b1ea
+}
+
+.product-page .hero-section.hero-section--portica {
+	background-color: #f9e06b
+}
+
+.product-page .hero-section.hero-section--cornflowerLilac {
+	background-color: #ffa6ac
+}
+
+.product-page .hero-section.hero-section--orange {
+	background-color: #fa0
+}
+
+.product-page .hero-section.hero-section--lemon {
+	background-color: #b2cc00
+}
+
+.product-page .hero-section.hero-section--puerto-rico {
+	background-color: #42c09c
+}
+
+.product-page .hero-section-buyNowCTA {
+	display: block;
+	background-color: #6fc;
+	padding: 16px 15px 12px;
+	margin: 15px 0 0;
+	line-height: 1;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif
+}
+
+.product-page .hero-section-unsweetend {
+	max-width: 149px;
+	margin: 0 auto;
+	margin-bottom: 20px
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section-unsweetend {
+		margin: 0 0 20px
+	}
+}
+
+.product-page .hero-section-wrapper {
+	width: 100%;
+	margin: 0 auto
+}
+
+@media (min-width:1280px) {
+	.product-page .hero-section-wrapper {
+		max-width: 1280px
+	}
+}
+
+.product-page .hero-section-container {
+	position: relative
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section-container {
+		max-width: 629px
+	}
+}
+
+@media (min-width:1280px) {
+	.product-page .hero-section-container {
+		max-width: 729px;
+		padding: 0 0 0 100px
+	}
+}
+
+.product-page .hero-section-bottle {
+	width: 100%
+}
+
+.product-page .hero-section-info {
+	width: 100%;
+	padding: 55px 25px 84px 33px;
+	transition: all 30ms ease
+}
+
+.product-page .hero-section-info.hero-section-info--coralRed,
+.product-page .hero-section-info.hero-section-info--red {
+	background-color: #ff3e47
+}
+
+.product-page .hero-section-info.hero-section-info--lipstick {
+	background-color: #c06
+}
+
+.product-page .hero-section-info.hero-section-info--orange,
+.product-page .hero-section-info.hero-section-info--persimmon {
+	background-color: #ff704d
+}
+
+.product-page .hero-section-info.hero-section-info--riptide {
+	background-color: #75e1c2
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section-info {
+		position: absolute;
+		right: -320px;
+		top: 50%;
+		transform: translateY(-50%);
+		max-width: 488px;
+		padding: 55px 25px 64px 33px
+	}
+}
+
+.product-page .hero-section-info h1 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 1.563rem;
+	letter-spacing: 1.67px;
+	line-height: 28px;
+	color: #fff;
+	margin: 0 auto 20px;
+	max-width: 360px;
+	text-align: center
+}
+
+@media (min-width:768px) {
+	.product-page .hero-section-info h1 {
+		font-size: 1.563rem
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section-info h1 {
+		font-size: 3.125rem;
+		line-height: 60px;
+		text-align: left;
+		margin: 0 0 20px;
+		max-width: auto;
+		max-width: 375px
+	}
+}
+
+.product-page .hero-section-info h4 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .688rem;
+	letter-spacing: 1.46px;
+	line-height: 15px;
+	color: #fff;
+	margin: 0 0 56px
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section-info h4 {
+		font-size: .938rem;
+		letter-spacing: 1.99px
+	}
+}
+
+.product-page .hero-section-info p {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	font-size: .875rem;
+	line-height: 20px;
+	color: #fff;
+	position: relative
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section-info p {
+		font-size: 1.125rem;
+		line-height: 26px
+	}
+}
+
+.product-page .hero-section-info p:before {
+	content: "";
+	position: absolute;
+	top: -28px;
+	left: 0;
+	right: 0;
+	width: 39px;
+	height: 6px;
+	margin: 0 auto
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section-info p:before {
+		margin: 0
+	}
+}
+
+.product-page .hero-section-info p.yellow-decor:before {
+	background-color: #fc3
+}
+
+.product-page .hero-section-info p.monza-decor:before {
+	background-color: #d0021b
+}
+
+.product-page .hero-section-info p.white-decor:before {
+	background-color: #fff
+}
+
+.product-page .hero-section-info p.scarlet-decor:before {
+	background-color: #f30
+}
+
+.product-page .hero-section-info .hero-section-info_content {
+	max-width: 360px;
+	margin: 0 auto;
+	text-align: center
+}
+
+@media (min-width:1024px) {
+	.product-page .hero-section-info .hero-section-info_content {
+		max-width: auto;
+		padding: 0 0 0 114px;
+		text-align: left
+	}
+}
+
+.product-page .hero-section-info .hero-section-info_content h4 {
+	text-transform: uppercase
+}
+
+.product-page .flavor-profile-section {
+	position: relative
+}
+
+.product-page .flavor-profile-section.flavor-profile-section--lightBlue {
+	background-color: #6fceec
+}
+
+.product-page .flavor-profile-section.flavor-profile-section--skyBlue {
+	background-color: #74cfec
+}
+
+.product-page .flavor-profile-section.flavor-profile-section--riptide {
+	background-color: #75e1c2
+}
+
+.product-page .flavor-profile-section.flavor-profile-section--lightOrange {
+	background-color: #ffc033
+}
+
+.product-page .flavor-profile-section.flavor-profile-section--sunglow {
+	background-color: #fc3
+}
+
+.product-page .flavor-profile-section .flavor-profile-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	max-width: 96px;
+	max-height: 96px;
+	transform: translateY(-50%)
+}
+
+@media (min-width:1024px) {
+	.product-page .flavor-profile-section .flavor-profile-title {
+		max-width: none;
+		max-height: none
+	}
+}
+
+.product-page .flavor-profile-section .ingredients-container {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 133px 20px 84px
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredients-container {
+		padding: 80px 10px
+	}
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredients-container.ingredients-container--six .ingredient {
+		-ms-flex-preferred-size: 27.3333%;
+		flex-basis: 27.3333%;
+		max-width: 27.3333%
+	}
+}
+
+@media (min-width:1460px) {
+	.product-page .flavor-profile-section .ingredients-container.ingredients-container--six .ingredient {
+		-ms-flex-preferred-size: 200px;
+		flex-basis: 200px;
+		max-width: 200px
+	}
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredients-container.ingredients-container--five .ingredient {
+		-ms-flex-preferred-size: 27.3333%;
+		flex-basis: 27.3333%;
+		max-width: 27.3333%
+	}
+}
+
+@media (min-width:1280px) {
+	.product-page .flavor-profile-section .ingredients-container.ingredients-container--five .ingredient {
+		-ms-flex-preferred-size: 200px;
+		flex-basis: 200px;
+		max-width: 200px
+	}
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredients-container.ingredients-container--four .ingredient {
+		-ms-flex-preferred-size: 30%;
+		flex-basis: 30%;
+		max-width: 30%
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page .flavor-profile-section .ingredients-container.ingredients-container--four .ingredient {
+		-ms-flex-preferred-size: 200px;
+		flex-basis: 200px;
+		max-width: 200px
+	}
+}
+
+.product-page .flavor-profile-section .ingredient-image-container {
+	height: 120px
+}
+
+@media (min-width:1024px) {
+	.product-page .flavor-profile-section .ingredient-image-container {
+		height: 150px
+	}
+}
+
+.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--small-image {
+	min-height: 130px
+}
+
+@media (min-width:1024px) {
+	.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--small-image {
+		height: 155px
+	}
+}
+
+.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--small-image img {
+	max-width: 48px
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--small-image img {
+		max-width: 36%
+	}
+}
+
+.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--medium-image {
+	min-height: 145px
+}
+
+@media (min-width:1024px) {
+	.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--medium-image {
+		height: 175px
+	}
+}
+
+.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--medium-image img {
+	max-width: 60px
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--medium-image img {
+		max-width: 45%
+	}
+}
+
+.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--tall-image {
+	height: 180px
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--tall-image {
+		height: 235px
+	}
+}
+
+.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--tall-image img {
+	max-width: 50%
+}
+
+.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--taller-image {
+	height: 180px
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--taller-image {
+		height: 235px
+	}
+}
+
+.product-page .flavor-profile-section .ingredient-image-container.ingredient-image-container--taller-image img {
+	max-width: 40%
+}
+
+.product-page .flavor-profile-section .ingredient {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	-ms-flex-preferred-size: 50%;
+	flex-basis: 50%;
+	max-width: 50%;
+	margin: 0 0 30px
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredient {
+		-ms-flex-preferred-size: 200px;
+		flex-basis: 200px;
+		max-width: 200px;
+		margin: 0 20px 30px
+	}
+}
+
+.product-page .flavor-profile-section .ingredient img {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	max-width: 100px;
+	max-height: 340px;
+	margin: 0 auto
+}
+
+@media (min-width:768px) {
+	.product-page .flavor-profile-section .ingredient img {
+		max-width: 60%
+	}
+}
+
+.product-page .flavor-profile-section .ingredient p {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .938rem;
+	letter-spacing: 2.89px;
+	line-height: 1;
+	color: #ff3e47;
+	text-align: center;
+	text-transform: uppercase;
+	min-height: 30px
+}
+
+@media (min-width:1024px) {
+	.product-page .flavor-profile-section .ingredient p {
+		font-size: 1.3rem;
+		min-height: 40px
+	}
+}
+
+.product-page .lifestyle-section {
+	height: 300px;
+	max-height: 300px
+}
+
+.product-page .lifestyle-section.background-passion-tango {
+	background-image: url(images/385ae2918f182db05f542fbedcb3cf94.gif)
+}
+
+.product-page .lifestyle-section.background-mango-black {
+	background-image: url(images/614f313f5165367df2c411d485a784de.jpg)
+}
+
+.product-page .lifestyle-section.background-meyer-lemon {
+	background-image: url(images/1454e34feef2c39aa35c531409261fd1.jpg)
+}
+
+.product-page .lifestyle-section.background-pineapple-berry-blue {
+	background-image: url(images/2d24a412183583c6bd0d2bbf6d78f437.jpg)
+}
+
+.product-page .lifestyle-section.background-peachgreen {
+	background-image: url(images/50024f6c4f9bf7c05e9bf37b1d95f2dd.jpg)
+}
+
+.product-page .lifestyle-section.background-strawberry-apple {
+	background-image: url(images/4a6875fc77ad4ba6fd41a075e9c3d191.jpg)
+}
+
+@media (min-width:768px) {
+	.product-page .lifestyle-section {
+		height: 362px;
+		max-height: 362px
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page .lifestyle-section {
+		height: 646px;
+		max-height: 646px
+	}
+}
+
+.product-page .three-rows-section {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap
+}
+
+.product-page .three-rows-section .column {
+	-ms-flex-preferred-size: 100%;
+	flex-basis: 100%;
+	max-width: 100%
+}
+
+@media (min-width:1024px) {
+	.product-page .three-rows-section .column {
+		-ms-flex-preferred-size: 33.33333%;
+		flex-basis: 33.33333%;
+		max-width: 33.33333%
+	}
+}
+
+.product-page .ingredients-table {
+	background-size: cover;
+	background-position: 50%;
+	padding: 40px
+}
+
+.product-page .ingredients-table.background-pineapple-berry-blue {
+	background-image: url(images/a0668c8ad16e91b3ff2a5936fdabf705.jpg)
+}
+
+.product-page .ingredients-table.background-passion-tango {
+	background-image: url(images/423ec901de97ab3d80ede911f33539c0.jpg)
+}
+
+.product-page .ingredients-table.background-mango-black {
+	background-image: url(images/22a4bc127ba3fa36a0ad837961100292.jpg)
+}
+
+.product-page .ingredients-table.background-meyer-lemon {
+	background-image: url(images/03ffb4f6ebf21a4266f7478ec50d87a6.jpg)
+}
+
+.product-page .ingredients-table.background-peach-green {
+	background-image: url(images/ffc983ed55d8c5fc94851a3b3a3059d8.jpg)
+}
+
+.product-page .ingredients-table.background-strawberry {
+	background-image: url(images/8b5cad9ee94554d7d2271452f1248f92.jpg)
+}
+
+.product-page .ingredients-table h3 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 1rem;
+	line-height: 15px;
+	letter-spacing: 1px;
+	color: #000;
+	margin: 0 0 36px;
+	text-transform: uppercase
+}
+
+@media (min-width:768px) {
+	.product-page .ingredients-table h3 {
+		margin: 0 0 50px
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page .ingredients-table h3 {
+		font-size: 1.3rem
+	}
+}
+
+.product-page .ingredients-table p {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	color: #fff;
+	font-size: .875rem;
+	line-height: 20px
+}
+
+@media (min-width:1024px) {
+	.product-page .ingredients-table p {
+		font-size: 1.125rem;
+		line-height: 26px
+	}
+}
+
+.product-page .ingredients-table .ingredients-container {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: center;
+	justify-content: center;
+	height: 100%;
+	padding: 35px
+}
+
+@media (min-width:768px) {
+	.product-page .ingredients-table .ingredients-container {
+		padding: 40px
+	}
+}
+
+.product-page .ingredients-table .ingredients-container.ingredients-container--green {
+	background-color: #75e1c2
+}
+
+.product-page .ingredients-table .ingredients-container.ingredients-container--cornflowerLilac {
+	background-color: #ffa6ac
+}
+
+.product-page .ingredients-table .ingredients-container.ingredients-container--orange {
+	background-color: #fa0
+}
+
+.product-page .ingredients-table .ingredients-container.ingredients-container--rioGrande {
+	background-color: #cc0
+}
+
+.product-page .ingredients-table .ingredients-container.ingredients-container--rio-grande {
+	background-color: #b2cc00
+}
+
+.product-page .ingredients-table .ingredients-container.ingredients-container--puerto-rico {
+	background-color: #42c09c
+}
+
+.product-page .nutrition-facts-table {
+	padding: 68px 48px
+}
+
+.product-page .nutrition-facts-table.nutrition-facts-table--red {
+	background-color: #ff3e47
+}
+
+.product-page .nutrition-facts-table.nutrition-facts-table--lightBlue {
+	background-color: #6fceec
+}
+
+.product-page .nutrition-facts-table.nutrition-facts-table--riptide {
+	background-color: #75e1c2
+}
+
+.product-page .nutrition-facts-table.nutrition-facts-table--persimmon {
+	background-color: #ff704d
+}
+
+.product-page .nutrition-facts-table h3 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 1rem;
+	letter-spacing: 1px;
+	line-height: 1.5rem;
+	text-transform: uppercase;
+	color: #000;
+	margin-bottom: 10px
+}
+
+@media (min-width:1024px) {
+	.product-page .nutrition-facts-table h3 {
+		font-size: 1.3rem
+	}
+}
+
+.product-page .nutrition-facts-table p {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	color: #000;
+	font-size: .875rem;
+	line-height: 20px
+}
+
+@media (min-width:1024px) {
+	.product-page .nutrition-facts-table p {
+		font-size: 1.125rem;
+		line-height: 26px
+	}
+}
+
+.product-page .nutrition-facts-table .facts-table {
+	margin: 5px 0
+}
+
+.product-page .nutrition-facts-table .facts-table .facts-table-row {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	margin: 0 0 9px
+}
+
+.product-page .nutrition-facts-table .facts-table strong {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif
+}
+
+.product-page .nutrition-facts-table .facts-table p {
+	color: #fff
+}
+
+.product-page .nutrition-facts-table .facts-table hr {
+	display: block;
+	border: none;
+	height: 1px;
+	background-color: #fff
+}
+
+.product-page .nutrition-facts-table .disclaimer {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	color: #000;
+	font-size: .813rem;
+	line-height: 16px
+}
+
+.product-page .also-like {
+	position: relative
+}
+
+.product-page .also-like.also-like--red {
+	background-color: #f30
+}
+
+.product-page .also-like.also-like--pink {
+	background-color: #f8c5c4
+}
+
+.product-page .also-like.also-like--skyBlue {
+	background-color: #74cfec
+}
+
+.product-page .also-like.also-like--oldGold {
+	background-color: #cccc2e
+}
+
+.product-page .also-like.also-like--amaranth {
+	background-color: #ef444c
+}
+
+.product-page .also-like.also-like--sea {
+	background-color: #faa828
+}
+
+.product-page .also-like.also-like--sun {
+	background-color: #fdcb44
+}
+
+.product-page .also-like a {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	height: 100%;
+	text-decoration: none;
+	padding: 68px 40px
+}
+
+.product-page .also-like img {
+	display: block;
+	width: 100%;
+	max-width: 110px;
+	margin: 0 -40px 30px 0
+}
+
+@media (min-width:768px) {
+	.product-page .also-like img {
+		max-width: 165px;
+		margin: 0 -60px 30px 0
+	}
+}
+
+.product-page .also-like .also-like-title {
+	-ms-flex-item-align: center;
+	align-self: center;
+	font-size: 1rem;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	text-transform: uppercase;
+	color: #000;
+	margin: 0 0 30px
+}
+
+@media (min-width:1024px) {
+	.product-page .also-like .also-like-title {
+		font-size: 1.3rem
+	}
+}
+
+.product-page .also-like .also-like-productName {
+	font-size: 1rem;
+	line-height: 21px;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center
+}
+
+@media (min-width:768px) {
+	.product-page .also-like .also-like-productName {
+		font-size: 1.3rem
+	}
+}
+
+.product-page-teas .hero-section {
+	position: relative;
+	padding: 0
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section {
+		padding: 39px 0 95px
+	}
+}
+
+.product-page-teas .hero-section.hero-section--blue {
+	background-color: #30b1ea
+}
+
+.product-page-teas .hero-section.hero-section--portica {
+	background-color: #f9e06b
+}
+
+.product-page-teas .hero-section.hero-section--cornflowerLilac {
+	background-color: #ffa6ac
+}
+
+.product-page-teas .hero-section.hero-section--orange {
+	background-color: #fa0
+}
+
+.product-page-teas .hero-section.hero-section--lemon {
+	background-color: #b2cc00
+}
+
+.product-page-teas .hero-section.hero-section--puerto-rico {
+	background-color: #42c09c
+}
+
+.product-page-teas .hero-section-unsweetend {
+	max-width: 149px;
+	margin: 0 auto;
+	margin-bottom: 20px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section-unsweetend {
+		margin: 0 0 20px
+	}
+}
+
+.product-page-teas .hero-section-wrapper {
+	width: 100%;
+	margin: 0 auto
+}
+
+@media (min-width:1280px) {
+	.product-page-teas .hero-section-wrapper {
+		max-width: 1280px
+	}
+}
+
+.product-page-teas .hero-section-container {
+	position: relative;
+	margin: 0 auto;
+	padding: 0
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section-container {
+		max-width: 629px;
+		transform: translateX(-30%)
+	}
+}
+
+@media (min-width:1280px) {
+	.product-page-teas .hero-section-container {
+		max-width: 729px
+	}
+}
+
+.product-page-teas .hero-section-carousel {
+	position: relative
+}
+
+.product-page-teas .pdp-carousel-slide {
+	padding: 12px 6px 6px
+}
+
+@media (min-width:768px) {
+	.product-page-teas .pdp-carousel-slide {
+		padding: 18px 12px 15px
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .pdp-carousel-slide {
+		padding: 0
+	}
+}
+
+.product-page-teas .pdp-carousel-navigation {
+	position: absolute;
+	display: none;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-ms-flex-align: center;
+	align-items: center;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	transform: translateX(-50%)
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .pdp-carousel-navigation {
+		display: -ms-flexbox;
+		display: flex
+	}
+}
+
+.product-page-teas .pdp-carousel-navigation .pdp-carousel-nav-item {
+	position: relative;
+	cursor: pointer;
+	margin: 10px 0;
+	width: 62px;
+	height: 62px
+}
+
+.product-page-teas .pdp-carousel-navigation .pdp-carousel-nav-item .image-white-overlay-container {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	position: relative
+}
+
+.product-page-teas .pdp-carousel-navigation .pdp-carousel-nav-item .image-white-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: hsla(0, 0%, 100%, .3);
+	opacity: 1;
+	transition: opacity .3s ease-out
+}
+
+.product-page-teas .pdp-carousel-navigation .pdp-carousel-nav-item.active .image-white-overlay,
+.product-page-teas .pdp-carousel-navigation .pdp-carousel-nav-item:hover .image-white-overlay {
+	opacity: 0
+}
+
+.product-page-teas .pdp-carousel-navigation .pdp-carousel-nav-item img {
+	width: 100%;
+	border: 2px solid #fff;
+	border-radius: 50%
+}
+
+.product-page-teas .hero-section-bottle {
+	width: 100%
+}
+
+.product-page-teas .hero-section-info {
+	width: 100%;
+	padding: 55px 25px 84px 33px;
+	transition: all 30ms ease
+}
+
+.product-page-teas .hero-section-info.hero-section-info--coralRed,
+.product-page-teas .hero-section-info.hero-section-info--red {
+	background-color: #ff3e47
+}
+
+.product-page-teas .hero-section-info.hero-section-info--lipstick {
+	background-color: #c06
+}
+
+.product-page-teas .hero-section-info.hero-section-info--orange,
+.product-page-teas .hero-section-info.hero-section-info--persimmon {
+	background-color: #ff704d
+}
+
+.product-page-teas .hero-section-info.hero-section-info--riptide {
+	background-color: #75e1c2
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section-info {
+		position: absolute;
+		right: -320px;
+		top: 50%;
+		transform: translateY(-50%) translateZ(0);
+		max-width: 488px;
+		padding: 55px 25px 64px 33px
+	}
+}
+
+.product-page-teas .hero-section-info h1 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 1.563rem;
+	letter-spacing: 1.67px;
+	line-height: 28px;
+	color: #fff;
+	margin: 0 auto 20px;
+	max-width: 360px;
+	text-align: center
+}
+
+@media (min-width:768px) {
+	.product-page-teas .hero-section-info h1 {
+		font-size: 1.563rem
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section-info h1 {
+		font-size: 3.125rem;
+		line-height: 60px;
+		text-align: left;
+		margin: 0 0 20px;
+		max-width: auto
+	}
+}
+
+.product-page-teas .hero-section-info h4 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .688rem;
+	letter-spacing: 1.46px;
+	line-height: 15px;
+	color: #fff;
+	margin: 0 0 56px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section-info h4 {
+		font-size: .938rem;
+		letter-spacing: 1.99px
+	}
+}
+
+.product-page-teas .hero-section-info p {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	font-size: .875rem;
+	line-height: 20px;
+	color: #fff;
+	position: relative
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section-info p {
+		font-size: 1.125rem;
+		line-height: 26px
+	}
+}
+
+.product-page-teas .hero-section-info p:before {
+	content: "";
+	position: absolute;
+	top: -28px;
+	left: 0;
+	right: 0;
+	width: 39px;
+	height: 6px;
+	margin: 0 auto
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section-info p:before {
+		margin: 0
+	}
+}
+
+.product-page-teas .hero-section-info p.yellow-decor:before {
+	background-color: #fc3
+}
+
+.product-page-teas .hero-section-info p.monza-decor:before {
+	background-color: #d0021b
+}
+
+.product-page-teas .hero-section-info p.white-decor:before {
+	background-color: #fff
+}
+
+.product-page-teas .hero-section-info p.scarlet-decor:before {
+	background-color: #f30
+}
+
+.product-page-teas .hero-section-info .hero-section-info_content {
+	max-width: 360px;
+	margin: 0 auto;
+	text-align: center
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .hero-section-info .hero-section-info_content {
+		max-width: auto;
+		padding: 0 0 0 114px;
+		text-align: left
+	}
+}
+
+.product-page-teas .hero-section-info .hero-section-info_content h4 {
+	text-transform: uppercase
+}
+
+.product-page-teas .flavor-profile-section {
+	position: relative
+}
+
+.product-page-teas .flavor-profile-section.flavor-profile-section--lightBlue {
+	background-color: #6fceec
+}
+
+.product-page-teas .flavor-profile-section.flavor-profile-section--skyBlue {
+	background-color: #74cfec
+}
+
+.product-page-teas .flavor-profile-section.flavor-profile-section--riptide {
+	background-color: #75e1c2
+}
+
+.product-page-teas .flavor-profile-section.flavor-profile-section--lightOrange {
+	background-color: #ffc033
+}
+
+.product-page-teas .flavor-profile-section.flavor-profile-section--sunglow {
+	background-color: #fc3
+}
+
+.product-page-teas .flavor-profile-section .flavor-profile-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	max-width: 96px;
+	max-height: 96px;
+	transform: translateY(-50%)
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .flavor-profile-section .flavor-profile-title {
+		max-width: none;
+		max-height: none
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredients-container {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 133px 20px 84px
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredients-container {
+		padding: 80px 10px
+	}
+}
+
+@media (min-width:480px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--seven .ingredient {
+		-ms-flex-preferred-size: 25%;
+		flex-basis: 25%;
+		max-width: 25%
+	}
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--seven .ingredient {
+		-ms-flex-preferred-size: 19%;
+		flex-basis: 19%;
+		max-width: 19%
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--seven .ingredient {
+		-ms-flex-preferred-size: 20%;
+		flex-basis: 20%;
+		max-width: 20%
+	}
+}
+
+@media (min-width:1280px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--seven .ingredient {
+		-ms-flex-preferred-size: 250px;
+		flex-basis: 250px;
+		max-width: 250px
+	}
+}
+
+@media (min-width:1460px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--seven .ingredient {
+		-ms-flex-preferred-size: 10%;
+		flex-basis: 10%;
+		max-width: 10%
+	}
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--six .ingredient {
+		-ms-flex-preferred-size: 27.3333%;
+		flex-basis: 27.3333%;
+		max-width: 27.3333%
+	}
+}
+
+@media (min-width:1460px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--six .ingredient {
+		-ms-flex-preferred-size: 200px;
+		flex-basis: 200px;
+		max-width: 200px
+	}
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--five .ingredient {
+		-ms-flex-preferred-size: 27.3333%;
+		flex-basis: 27.3333%;
+		max-width: 27.3333%
+	}
+}
+
+@media (min-width:1280px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--five .ingredient {
+		-ms-flex-preferred-size: 200px;
+		flex-basis: 200px;
+		max-width: 200px
+	}
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--four .ingredient {
+		-ms-flex-preferred-size: 30%;
+		flex-basis: 30%;
+		max-width: 30%
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .flavor-profile-section .ingredients-container.ingredients-container--four .ingredient {
+		-ms-flex-preferred-size: 200px;
+		flex-basis: 200px;
+		max-width: 200px
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container {
+	height: 120px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .flavor-profile-section .ingredient-image-container {
+		height: 150px
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--small-image {
+	min-height: 130px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--small-image {
+		height: 155px
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--small-image img {
+	max-width: 48px
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--small-image img {
+		max-width: 36%
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--medium-image {
+	min-height: 145px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--medium-image {
+		height: 175px
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--medium-image img {
+	max-width: 60px
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--medium-image img {
+		max-width: 45%
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--tall-image {
+	height: 180px
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--tall-image {
+		height: 235px
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--tall-image img {
+	max-width: 50%
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--taller-image {
+	height: 180px
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--taller-image {
+		height: 235px
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient-image-container.ingredient-image-container--taller-image img {
+	max-width: 40%
+}
+
+.product-page-teas .flavor-profile-section .ingredient {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	-ms-flex-preferred-size: 50%;
+	flex-basis: 50%;
+	max-width: 50%;
+	margin: 0 0 30px
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredient {
+		-ms-flex-preferred-size: 200px;
+		flex-basis: 200px;
+		max-width: 200px;
+		margin: 0 20px 30px
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient img {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	max-width: 100px;
+	max-height: 340px;
+	margin: 0 auto
+}
+
+@media (min-width:768px) {
+	.product-page-teas .flavor-profile-section .ingredient img {
+		max-width: 60%
+	}
+}
+
+.product-page-teas .flavor-profile-section .ingredient p {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .938rem;
+	letter-spacing: 2.89px;
+	line-height: 1;
+	color: #ff3e47;
+	text-align: center;
+	text-transform: uppercase;
+	min-height: 30px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .flavor-profile-section .ingredient p {
+		font-size: 1.3rem;
+		min-height: 40px
+	}
+}
+
+.product-page-teas .lifestyle-section {
+	height: 300px;
+	max-height: 300px
+}
+
+.product-page-teas .lifestyle-section.background-passion-tango {
+	background-image: url(images/385ae2918f182db05f542fbedcb3cf94.gif)
+}
+
+.product-page-teas .lifestyle-section.background-mango-black {
+	background-image: url(images/614f313f5165367df2c411d485a784de.jpg)
+}
+
+.product-page-teas .lifestyle-section.background-meyer-lemon {
+	background-image: url(images/1454e34feef2c39aa35c531409261fd1.jpg)
+}
+
+.product-page-teas .lifestyle-section.background-pineapple-berry-blue {
+	background-image: url(images/2d24a412183583c6bd0d2bbf6d78f437.jpg)
+}
+
+.product-page-teas .lifestyle-section.background-peachgreen {
+	background-image: url(images/50024f6c4f9bf7c05e9bf37b1d95f2dd.jpg)
+}
+
+.product-page-teas .lifestyle-section.background-strawberry-apple {
+	background-image: url(images/4a6875fc77ad4ba6fd41a075e9c3d191.jpg)
+}
+
+@media (min-width:768px) {
+	.product-page-teas .lifestyle-section {
+		height: 362px;
+		max-height: 362px
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .lifestyle-section {
+		height: 646px;
+		max-height: 646px
+	}
+}
+
+.product-page-teas .three-rows-section {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap
+}
+
+.product-page-teas .three-rows-section .column {
+	-ms-flex-preferred-size: 100%;
+	flex-basis: 100%;
+	max-width: 100%
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .three-rows-section .column {
+		-ms-flex-preferred-size: 33.33333%;
+		flex-basis: 33.33333%;
+		max-width: 33.33333%
+	}
+}
+
+.product-page-teas .ingredients-table {
+	background-size: cover;
+	background-position: 50%;
+	padding: 40px
+}
+
+.product-page-teas .ingredients-table.background-pineapple-berry-blue {
+	background-image: url(images/a0668c8ad16e91b3ff2a5936fdabf705.jpg)
+}
+
+.product-page-teas .ingredients-table.background-passion-tango {
+	background-image: url(images/423ec901de97ab3d80ede911f33539c0.jpg)
+}
+
+.product-page-teas .ingredients-table.background-mango-black {
+	background-image: url(images/22a4bc127ba3fa36a0ad837961100292.jpg)
+}
+
+.product-page-teas .ingredients-table.background-meyer-lemon {
+	background-image: url(images/03ffb4f6ebf21a4266f7478ec50d87a6.jpg)
+}
+
+.product-page-teas .ingredients-table.background-peach-green {
+	background-image: url(images/ffc983ed55d8c5fc94851a3b3a3059d8.jpg)
+}
+
+.product-page-teas .ingredients-table.background-strawberry {
+	background-image: url(images/8b5cad9ee94554d7d2271452f1248f92.jpg)
+}
+
+.product-page-teas .ingredients-table h3 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 1rem;
+	line-height: 15px;
+	letter-spacing: 1px;
+	color: #000;
+	margin: 0 0 36px;
+	text-transform: uppercase
+}
+
+@media (min-width:768px) {
+	.product-page-teas .ingredients-table h3 {
+		margin: 0 0 50px
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .ingredients-table h3 {
+		font-size: 1.3rem
+	}
+}
+
+.product-page-teas .ingredients-table p {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	color: #fff;
+	font-size: .875rem;
+	line-height: 20px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .ingredients-table p {
+		font-size: 1.125rem;
+		line-height: 26px
+	}
+}
+
+.product-page-teas .ingredients-table .ingredients-container {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: center;
+	justify-content: center;
+	height: 100%;
+	padding: 35px
+}
+
+@media (min-width:768px) {
+	.product-page-teas .ingredients-table .ingredients-container {
+		padding: 40px
+	}
+}
+
+.product-page-teas .ingredients-table .ingredients-container.ingredients-container--green {
+	background-color: #75e1c2
+}
+
+.product-page-teas .ingredients-table .ingredients-container.ingredients-container--cornflowerLilac {
+	background-color: #ffa6ac
+}
+
+.product-page-teas .ingredients-table .ingredients-container.ingredients-container--orange {
+	background-color: #fa0
+}
+
+.product-page-teas .ingredients-table .ingredients-container.ingredients-container--rioGrande {
+	background-color: #cc0
+}
+
+.product-page-teas .ingredients-table .ingredients-container.ingredients-container--rio-grande {
+	background-color: #b2cc00
+}
+
+.product-page-teas .ingredients-table .ingredients-container.ingredients-container--puerto-rico {
+	background-color: #42c09c
+}
+
+.product-page-teas .nutrition-facts-table {
+	padding: 68px 48px
+}
+
+.product-page-teas .nutrition-facts-table.nutrition-facts-table--red {
+	background-color: #ff3e47
+}
+
+.product-page-teas .nutrition-facts-table.nutrition-facts-table--lightBlue {
+	background-color: #6fceec
+}
+
+.product-page-teas .nutrition-facts-table.nutrition-facts-table--riptide {
+	background-color: #75e1c2
+}
+
+.product-page-teas .nutrition-facts-table.nutrition-facts-table--persimmon {
+	background-color: #ff704d
+}
+
+.product-page-teas .nutrition-facts-table h3 {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: 1rem;
+	letter-spacing: 1px;
+	line-height: 1.5rem;
+	text-transform: uppercase;
+	color: #000;
+	margin-bottom: 10px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .nutrition-facts-table h3 {
+		font-size: 1.3rem
+	}
+}
+
+.product-page-teas .nutrition-facts-table p {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	color: #000;
+	font-size: .938rem;
+	line-height: 1.5rem
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .nutrition-facts-table p {
+		font-size: 1.125rem
+	}
+}
+
+.product-page-teas .nutrition-facts-table .facts-table {
+	margin: 5px 0
+}
+
+.product-page-teas .nutrition-facts-table .facts-table .facts-table-row {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	margin: 0 0 9px
+}
+
+.product-page-teas .nutrition-facts-table .facts-table strong {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif
+}
+
+.product-page-teas .nutrition-facts-table .facts-table p {
+	color: #fff
+}
+
+.product-page-teas .nutrition-facts-table .facts-table hr {
+	display: block;
+	border: none;
+	height: 1px;
+	background-color: #fff
+}
+
+.product-page-teas .nutrition-facts-table .disclaimer {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif;
+	color: #000;
+	font-size: .813rem;
+	line-height: 16px
+}
+
+.product-page-teas .also-like {
+	position: relative
+}
+
+.product-page-teas .also-like.also-like--red {
+	background-color: #f30
+}
+
+.product-page-teas .also-like.also-like--pink {
+	background-color: #f8c5c4
+}
+
+.product-page-teas .also-like.also-like--skyBlue {
+	background-color: #74cfec
+}
+
+.product-page-teas .also-like.also-like--oldGold {
+	background-color: #cccc2e
+}
+
+.product-page-teas .also-like.also-like--amaranth {
+	background-color: #ef444c
+}
+
+.product-page-teas .also-like.also-like--sea {
+	background-color: #faa828
+}
+
+.product-page-teas .also-like.also-like--sun {
+	background-color: #fdcb44
+}
+
+.product-page-teas .also-like a {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	height: 100%;
+	text-decoration: none;
+	padding: 38px 40px 68px
+}
+
+.product-page-teas .also-like img {
+	display: block;
+	width: 100%;
+	max-width: 110px;
+	margin: 0 -40px 30px 0
+}
+
+@media (min-width:768px) {
+	.product-page-teas .also-like img {
+		max-width: 165px;
+		margin: 0 -60px 30px 0
+	}
+}
+
+.product-page-teas .also-like .also-like-title {
+	-ms-flex-item-align: center;
+	align-self: center;
+	font-size: 1rem;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	text-transform: uppercase;
+	color: #000;
+	margin: 0 0 30px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas .also-like .also-like-title {
+		font-size: 1.3rem
+	}
+}
+
+.product-page-teas .also-like .also-like-productName {
+	font-size: 1rem;
+	line-height: 21px;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center
+}
+
+@media (min-width:768px) {
+	.product-page-teas .also-like .also-like-productName {
+		font-size: 1.3rem
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .hero-section {
+		padding-left: 47px
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section.hero-section--koromiko {
+	background-color: #ffbb6a
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section.hero-section--beautybush {
+	background-color: #ecb1ba
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section.hero-section--doublepearl {
+	background-color: #fce5cd
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section.hero-section--beryl-green {
+	background-color: #d0e8c4
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section.hero-section--light-wisteria {
+	background-color: #bc9eda
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section.hero-section--glacier {
+	background-color: #76b3c8
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info {
+		right: -365px;
+		max-width: 420px
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info.hero-section-info--flamingo {
+	background-color: #f25c38
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info.hero-section-info--bright-red {
+	background-color: #b30000
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info.hero-section-info--lipstick {
+	background-color: #c06
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info.hero-section-info--yelloworange {
+	background-color: #ffab40
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info.hero-section-info--goldenrod {
+	background-color: #fecd6d
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info.hero-section-info--vistablue {
+	background-color: #8ccaaf
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info.hero-section-info--plum {
+	background-color: #973786
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info.hero-section-info--palesky {
+	background-color: #626f87
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .pumpkin-decor:before {
+	background-color: #ff7615
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .green-decor:before {
+	background-color: #59ac88
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .yellow-orange-decor:before {
+	background-color: #ffab40
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .zanah-decor:before {
+	background-color: #d9ead3
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-info_content {
+		padding-left: 83px
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-caffeine-grade {
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 20px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-caffeine-grade {
+		margin: 0;
+		margin-top: 20px;
+		width: 100%;
+		padding-left: 84px;
+		text-align: left;
+		display: -ms-flexbox;
+		display: flex
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-caffeine-grade p {
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif;
+	font-size: .8rem;
+	line-height: .7rem;
+	margin-right: 10px;
+	display: inline-block
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-caffeine-grade p {
+		display: block
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-caffeine-grade .caffeine-grades-container {
+	display: inline-block
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-caffeine-grade .caffeine-grades-container .caffeine-grade {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin: 0 0 0 3px
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-caffeine-grade .caffeine-grades-container .caffeine-grade:first-child {
+	margin: 0
+}
+
+.product-page-teas.pdp-tea-sachets .hero-section .hero-section-info .hero-section-caffeine-grade .caffeine-grades-container .caffeine-grade.caffeine-grade--empty {
+	height: 11px
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section.flavor-profile-section--pumpkin {
+	background-color: #ff7615
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section.flavor-profile-section--silvertree {
+	background-color: #59ac88
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section.flavor-profile-section--yelloworange {
+	background-color: #ffab40
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section.flavor-profile-section--zanah {
+	background-color: #d9ead3
+}
+
+@media (min-width:768px) {
+	.product-page-teas.pdp-tea-sachets .flavor-profile-section .ingredients-container .ingredient {
+		margin: 0 20px
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section .ingredients-container .ingredient.ingredient--lavender img {
+	max-width: 96px;
+	max-height: 80px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .flavor-profile-section .ingredients-container .ingredient.ingredient--lavender img {
+		max-width: 120px;
+		max-height: 100px
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section .ingredients-container .ingredient.ingredient--ginger img {
+	max-width: 72px;
+	max-height: 80px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .flavor-profile-section .ingredients-container .ingredient.ingredient--ginger img {
+		max-width: 90px;
+		max-height: 100px
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section .ingredients-container .ingredient p {
+	color: #fff
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section .ingredients-container .ingredient p.black-font {
+	color: #000
+}
+
+.product-page-teas.pdp-tea-sachets .flavor-profile-section .ingredients-container .ingredient img {
+	max-width: 50%
+}
+
+.product-page-teas.pdp-tea-sachets .lifestyle-section.background-imperial-chai {
+	background-image: url(images/128bda499d06ee9f2435527321abc5f9.png)
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .background-imperial {
+	background-image: url(images/7293abf7d61ed4a884dfeb6007c2aa9e.png)
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .background-youthberry {
+	background-image: url(images/34347f1fe107fefb4300f8bac1f3edcb.png)
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .background-peach {
+	background-image: url(images/4653b6969bedf7a05015c2bc36224622.png)
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .background-mint {
+	background-image: url(images/7224580086e6eaa6b80a3ca030239324.png)
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .background-lavender {
+	background-image: url(images/b4bbda0a26f198517a43cfff5b01afd3.png)
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .background-earl-grey {
+	background-image: url(images/96232345fc7fb8cf8e5ab5fa5e3a7384.png)
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table {
+	padding: 21px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table {
+		padding: 40px
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container {
+	padding: 21px
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container {
+		padding: 35px
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container.ingredients-container--orange {
+	background-color: #ff7615
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container.ingredients-container--pink {
+	background-color: #ecb1ba
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container.ingredients-container--weborange {
+	background-color: #fa0
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container.ingredients-container--silvertree {
+	background-color: #59ac88
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container.ingredients-container--yellow-orange {
+	background-color: #ffab40
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container.ingredients-container--glacier {
+	background-color: #76b3c8
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container h3 {
+	color: #fff;
+	margin: 20px 0 36px
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .ingredients-table .ingredients-container h3.black-font {
+	color: #000
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table {
+	padding: 38px 48px
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table.nutrition-facts-table--milano-red {
+	background-color: #a61c00
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table.nutrition-facts-table--yellow-green {
+	background-color: #c0ea90
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table.nutrition-facts-table--froly {
+	background-color: #ec6f7b
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table.nutrition-facts-table--beauty-bush {
+	background-color: #ecb1ba
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table.nutrition-facts-table--plum {
+	background-color: #973786
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table.nutrition-facts-table--palesky {
+	background-color: #626f87
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table h3 {
+	color: #fff;
+	margin-bottom: 35px;
+	font-size: 1rem
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table h3 {
+		font-size: 1.3rem
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table h3.black-font {
+	color: #000
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table p {
+	color: #fff;
+	margin-bottom: 20px;
+	font-size: .938rem;
+	line-height: 1.2
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table p.instruction {
+	margin-bottom: 35px
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table p span {
+	font-family: MostardesignSofiaProLight, Helvetica, sans-serif
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table p strong {
+	margin: 0 3px 0 0;
+	font-style: normal;
+	font-size: 2.188rem;
+	font-family: MostardesignSofiaProBold, Helvetica, sans-serif
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .nutrition-facts-table p.black-font {
+	color: #000
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .also-like.also-like--ocean-green {
+	background-color: #3ea97a
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .also-like.also-like--cannon-pink {
+	background-color: #834779
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .also-like a {
+	padding: 38px 40px 35px;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 420px
+}
+
+@media (min-width:480px) {
+	.product-page-teas.pdp-tea-sachets .three-rows-section .also-like a {
+		min-height: 620px
+	}
+}
+
+@media (min-width:768px) {
+	.product-page-teas.pdp-tea-sachets .three-rows-section .also-like a {
+		min-height: 800px
+	}
+}
+
+@media (min-width:1024px) {
+	.product-page-teas.pdp-tea-sachets .three-rows-section .also-like a {
+		min-height: 0
+	}
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .also-like img {
+	margin: 0 0 30px
+}
+
+.product-page-teas.pdp-tea-sachets .three-rows-section .also-like h3.white-font {
+	color: #fff
+}

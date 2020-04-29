@@ -1,0 +1,78 @@
+page{background-color: #f2f2f2;}
+.detail_swiper{width: 100%; height: 750rpx;}
+.detail_swiper  .slide-image{width: 100%; height: 100%;}
+.pd1530{padding: 20rpx 30rpx;}
+
+.detail_name{color: #343434;display: -webkit-box; overflow: hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis; margin: 10rpx 0 20rpx 0 }
+.kc_text{color: #a8a8a8; font-size: 0.9em}
+.kc_text text{display: inline-block; margin-left: 10rpx;}
+
+
+.tab-h{
+    height: 88rpx;width: 90%; box-sizing: border-box;overflow: hidden;line-height: 80rpx; font-size: 16px; white-space: nowrap; margin-left: 5%}
+.tab-item{display: inline-block;width:33.33%;text-align:center;border-bottom:1px solid #f0f0f0; font-size:1em;
+box-sizing:border-box; color: #999999;
+}
+.tab-item.active{position: relative; color: #333333 }
+.tab-item.active:after{ content: "";display: inline-block;height: 2rpx;background: #010101;position: absolute; bottom: 0;left: 30%;border-radius: 16rpx; width: 40%;}
+/* .tab-item.active:after{ content: "";display: inline-block;height: 8rpx;width: 52rpx;background: #cb4db0;position: absolute; bottom: 0;left: 50%;border-radius: 16rpx; margin-left:-26rpx} */
+.item-ans{ width: 100%;display: flex; flex-grow: row no-wrap;justify-content: space-between; padding: 30rpx;box-sizing: border-box; height: 180rpx;align-items: center;border-bottom: 1px solid #F2F2F2;}
+.avatar{width: 100rpx;height: 100rpx;position: relative;padding-right: 30rpx;}
+.avatar .img{width: 100%;height: 100%;}
+.avatar .doyen{width: 40rpx;height: 40rpx;position: absolute;bottom: -2px;right: 20rpx;}
+.expertInfo{font-size: 12px;flex-grow: 2;color: #B0B0B0;line-height: 1.5em;}
+.expertInfo .name{font-size: 16px;color:#000;margin-bottom: 6px;}
+.askBtn{ width: 120rpx;height: 60rpx;line-height: 60rpx;text-align: center;font-size: 14px; border-radius: 60rpx;border: 1px solid #cb4db0; color:#cb4db0;}
+.tab-content{position: relative;
+
+width:100%;
+}
+.tab_b{background-color: #ffffff; margin-top: 20rpx;}
+.tab-content{padding: 30rpx 0;}
+.tw_detail text{ box-sizing: border-box; display: inline-block; font-size:1em; padding: 10rpx 30rpx;}
+.page-group-position{position: fixed; top: 0; background-color: #ffffff!important; width: 100%; z-index: 99999;margin-left: 0!important;}
+.tab-content image{width: 100%; margin-bottom: 10rpx;}
+
+/*参数*/
+.tj_rqimg{width: 30rpx!important; position: relative; top: 2px; margin-right: 5rpx; height: 30rpx;margin-bottom:0!important;
+}
+.re_cs{position: relative; border-bottom: 1px solid #f7f7f7; font-size: 1em; padding: 20rpx 30rpx; box-sizing: border-box; padding-left: 5.5em; color: #858585}
+.re_cs .ab_cs{position: absolute; left: 0rpx; top: 50%; margin-top: -40rpx; padding: 0; height: 80rpx; line-height: 80rpx; }
+.tj_view{ padding: 0 20rpx; box-sizing: border-box;}
+.tj_product{width: 315rpx; background-color: #ffffff; height: auto; box-shadow: 0 0  20rpx 0 silver; margin: 20rpx; float: left; padding: 40rpx 30rpx; box-sizing: border-box;}
+.tj_img{width: 230rpx; height: 230rpx;}
+.tj_js{display: -webkit-box; overflow: hidden;margin-bottom: 20rpx;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis}
+   .tj_sxli{position: relative; font-size: 0.9em; color: #848484;}
+   .tj_sxli .sx_ab{position: absolute; right: 0; top: 0rpx;}
+      /* 富文本 */
+rich-text {
+padding: 25rpx 0;
+}
+
+.rich-text-wrp {
+padding: 0 25rpx;
+background-color: #fff;
+}
+
+.page-section{
+width: 100%;
+margin-bottom: 60rpx;
+}
+
+.page-section:last-child{
+margin-bottom: 0;
+}
+
+.page-section-title{
+font-size: 28rpx;
+color: #999999;
+margin-bottom: 10rpx;
+padding-left: 30rpx;
+padding-right: 30rpx;
+}

@@ -1,0 +1,5 @@
+@import "../../wxParse/wxParse.wxss";
+.team{padding: 30rpx;}
+.team_title{font-size: 1.3em; font-weight: bold; color: #333333;}
+.fb_time{font-size: 0.9em; color: #989898; margin-top: 20rpx;}
+.main image{width: 100%; margin: 15rpx 0}

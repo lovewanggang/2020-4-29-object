@@ -1,0 +1,67 @@
+<scroll-view bindscroll="scroll" scroll-y="true">
+  <swiper indicator-dots="{{indicatorDots}}" class='detail_swiper' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgba(255,255,255,.5)" indicator-active-color="rgba(255,255,255,1)">
+    <block wx:for="{{imgUrls}}" wx:for-index="index">
+      <swiper-item>
+        <image bindtap='viewImg' data-index='{{index}}' src="{{item}}" class="slide-image" mode='aspectFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='pd1530 fs1_2 bgwhite'>
+    <view class='detail_name'>{{product.productDetail}}</view>
+    <!-- <text class='kc_text'>库存：<text>{{product.producStock}}</text></text> -->
+  </view>
+  <!-- tab切换 -->
+
+  <view style='overflow:auto' class='tab_b'>
+    <view class='center'>
+      <scroll-view scroll-x="true" class="tab-h {{scrollTop > 400 ? 'page-group-position' : ''}}" scroll-left="{{scrollLeft}}">
+        <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">图文详情</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">产品参数</view>
+        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">相关推荐</view>
+      </scroll-view>
+    </view>
+    <!-- 图文详情 -->
+    <view class="tab-content tw_detail" hidden='{{currentTab==0?false:true}}'>
+    
+    <!-- {{product.showProduct}} -->
+
+     <view class="page-body">
+      <view class="page-section">
+      <view class="rich-text-wrp">
+      <rich-text nodes="{{showProduct}}" bindtap="tap"></rich-text>
+      </view>
+      </view>
+      </view>
+    
+    </view>
+    <!-- 产品参数 -->
+    <view class="tab-content" hidden='{{currentTab==1?false:true}}' style='padding:0 30rpx;   box-sizing: border-box;'>
+      <view class='re_cs' wx:for="{{productParamers}}"  wx:for-item="param" >
+        <text class='ab_cs'>{{param.productParamer.paramerName}}</text>
+        <view>{{param.productValue}}</view>
+      </view>
+      
+
+    </view>
+    <!-- 相关推荐 -->
+    <view class="tab-content tj_view" hidden='{{currentTab==2?false:true}}'>
+      <view class='tj_product' wx:for="{{products}}"  wx:for-item="products"  bindtap='go_detail' data-id="{{products.productId}}">
+        <image mode='aspectFill' class='tj_img' src='{{products.productPic1}}'></image>
+        <view class='tj_js'>
+          {{products.productDetail}}
+        </view>
+        <view>
+          <view class='tj_sxli'>
+            <text>{{products.productNum}}</text>
+            <view class='sx_ab'>
+              <image src='../images/rq.png' class='tj_rqimg'></image>
+              <text>{{products.productHot}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+    </view>
+
+  </view>
+</scroll-view>

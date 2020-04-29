@@ -1,0 +1,56 @@
+<!-- 职位详情 -->
+<view class='Recruitment_details'>
+  <view class='recruit_name'>{{job.cjiName}}</view>
+  <view>
+    <view class='sm_view'>
+      <image src='../images/money.png' mode='aspectFit' class='sm_icon'></image>
+      <text>{{job.cjiSalary}}</text>
+    </view>
+    <view class='sm_view'>
+      <image src='../images/time.png' mode='aspectFit' class='sm_icon'></image>
+      <text>{{job.cjiExp}}</text>
+    </view>
+    <view class='sm_view'>
+      <image src='../images/edu.png' mode='aspectFit' class='sm_icon'></image>
+      <text>{{job.cjiEdu}}</text>
+    </view>
+  </view>
+  <view class='address'>
+    <image src='../images/address.png' mode='aspectFit' class='sm_icon'></image>
+    <text>{{job.cjiAddr}}</text>
+  </view>
+
+  <view class='description'>职位描述</view>
+
+  <view class='gwzz_detail'>
+    <view>
+      <view class="page-body">
+      <view class="page-section">
+      <view class="rich-text-wrp">
+      <rich-text nodes="{{jobDetail}}" bindtap="tap"></rich-text>
+      </view>
+      </view>
+      </view>
+    </view>
+  </view>
+
+  
+ 
+</view>
+<!-- 公司其他职位 -->
+<view class="title">
+  <text>公司其他职位</text>
+</view>
+  <view class='zp_ul'>
+    <view class='zp_list' bindtap='zw_detail' data-comjobid="{{job.companyJobInfoId}}" wx:for="{{jobs}}" wx:for-item="job" wx:key="{{*this}}">
+      <view class='zw_name'>{{job.cjiName}}</view>
+      <view class='zw_sxlist'>
+        <text class='zw_sx'>月薪： <text>{{job.cjiSalary}}</text></text>
+        <text class='zw_sx'>经验： <text>{{job.cjiExp}}</text></text>
+        <text class='zw_sx'>学历：<text>{{job.cjiEdu}}</text></text>
+      </view>
+      <image mode='aspectFit' src='../images/rightjt.png' class='rightjt'> </image>
+    </view>
+    
+  </view>
+  <button class='contact_us'>联系我们</button>

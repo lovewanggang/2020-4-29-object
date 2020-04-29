@@ -1,0 +1,3 @@
+/* pages/first/first.wxss */
+.yx_button{font-size: 1.2em; height: 100rpx; line-height: 100rpx!important; margin-top: 100rpx; display: inline-block; }
+.logo{width: 160rpx; margin-bottom: 50rpx;}

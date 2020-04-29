@@ -1,0 +1,167 @@
+
+  /* 富文本 */
+rich-text {
+padding: 25rpx 0;
+}
+
+.rich-text-wrp {
+padding: 0 25rpx;
+background-color: #fff;
+}
+
+.page-section{
+width: 100%;
+margin-bottom: 60rpx;
+}
+
+.page-section:last-child{
+margin-bottom: 0;
+}
+
+.page-section-title{
+font-size: 28rpx;
+color: #999999;
+margin-bottom: 10rpx;
+padding-left: 30rpx;
+padding-right: 30rpx;
+}
+.sm_icon {
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 8rpx;
+  position: relative;
+  top: 2px;
+}
+
+.Recruitment_details {
+  padding: 0 25rpx;
+  box-sizing: border-box;
+}
+
+.recruit_name {
+  font-size: 1.2em;
+  color: #333;
+  font-weight: 600;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.sm_view {
+  display: inline-block;
+  color: #7a7a7a;
+  margin-right: 57rpx;
+}
+
+.address {
+  color: #7e7e7e;
+  margin-top: 10rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.description {
+  padding-left: 30rpx;
+  position: relative;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.description::before {
+  content: '';
+  position: absolute;
+  background-color: #333;
+  width: 5rpx;
+  height: 30rpx;
+  top: 32rpx;
+  left: 0;
+}
+
+.gwzz {
+  color: #333;
+  font-size: 1.1em;
+}
+
+.gwzz_detail {
+  color: #747474;
+  font-size: 1em;
+}
+
+.gwzz_detail view {
+  margin: 10rpx 0;
+}
+
+.title {
+  color: #929292;
+  font-size: 1em;
+  height: 80rpx;
+  text-align: center;
+  font-weight: 500;
+  line-height: 80rpx;
+  background-color: #f0eff5;
+}
+
+.title text {
+  display: block; /*设置为块级元素会独占一行形成上下居中的效果*/
+  font-size: 1em;
+  color: #929292;
+  position: relative; /*定位横线（当横线的父元素）*/
+}
+
+.title text:before, .title text:after {
+  content: ''; /*CSS伪类用法*/
+  position: absolute; /*定位背景横线的位置*/
+  top: 52%;
+  background: #929292; /*宽和高做出来的背景横线*/
+  width: 9%;
+  height: 1px;
+}
+
+.title text:before {
+  left: 25%; /*调整背景横线的左右距离*/
+}
+
+.title text:after {
+  right: 25%;
+}
+
+.zp_list {
+  padding: 30rpx 0;
+  border: 1px solid #eee;
+  padding-right: 70rpx;
+  position: relative;
+  padding-left: 20rpx;
+  margin-bottom: 30rpx;
+}
+.zp_list:last-child{margin-bottom: 0}
+
+.zw_sx {
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.zw_name {
+  font-size: 1.3em;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.zw_sxlist {
+  color: #999;
+  font-size: 1em;
+}
+
+.zp_list .rightjt {
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  top: 50%;
+  margin-top: -25rpx;
+  right: 0rpx;
+}
+.zp_ul{padding: 35rpx;}
+.contact_us{position: fixed; bottom: 0; width: 100%; background-color: #333333; color: #ffffff; border: 0; border-radius: 0 }
+.contact_us::after{border: 0}
+page{padding-bottom: 100rpx;}

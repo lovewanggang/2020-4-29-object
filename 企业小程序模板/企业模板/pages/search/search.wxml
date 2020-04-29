@@ -1,0 +1,80 @@
+<!-- 搜索框 -->
+<view class="search-wrapper">
+  <view class="search-panel">
+    <view class="search-section">
+      <view class="search-input-wrapper ">
+        <image src='../images/search.png' mode='aspectFit' class='search_icon'></image>
+        <input bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindjd" bindblur="bindBarcodeBlur" class="search-input" placeholder="输入分类或商品编号" value="{{searchValue}}" confirm-type="search" auto-focus="true" />
+        <image src='../images/input_del.png' mode='aspectFit' class='search-clear' hidden='{{clear}}' bindtap='clear_search'></image>
+      </view>
+      <view class="search-button-wrapper">
+        <button size='mini' class='search_btn' bindtap='query'>搜索</button>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 便捷搜索 -->
+<view wx:if="{{bjSearch}}"   style='border-top:1px solid #eeeeee;'>
+  <!-- 热门搜索 -->
+ <view class='rm'>
+    <!--  <view class='rm_title'>
+      热门搜索
+    </view>
+    <view class='tips'>
+      <text bindtap="searchIt" data-value="吊粒">吊粒</text>
+      <text>环保袋</text>
+      <text>亮膜无纺布袋</text>
+      <text>男款吊牌</text>
+      <text>吊粒</text>
+      <text>亮膜无纺布袋</text>
+      <text>男款吊牌</text>
+      <text>吊粒</text>
+
+    </view>-->
+  </view> 
+  <!-- 历史搜索 -->
+  <view class='rm' style=' margin-top:30rpx;' wx:if="{{historyShow}}">
+    <view class='rm_title'>
+      历史搜索
+      <image mode='aspectFit' src='../images/delete.png' class='del_history' bindtap='delHistory'></image>
+    </view>
+    <view class='tips'>
+      <text wx:for="{{historyList}}" wx:for-item="i" wx:key="{{*this}}" bindtap='searchIt' data-value='{{i}}'>{{i}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- datalist -->
+<!-- <view class='datalist' wx:if="{{datalistShow}}">
+  <view  bindtap='Search_datalist' data-value="环保袋">环保袋</view>
+  <view  bindtap='Search_datalist' data-value="环保盒子">环保盒子</view>
+  <view  bindtap='Search_datalist' data-value="环保袋">环保袋</view>
+  <view  bindtap='Search_datalist' data-value="环保盒子">环保盒子</view>
+  <view  bindtap='Search_datalist' data-value="环保袋">环保袋</view>
+  <view  bindtap='Search_datalist' data-value="环保盒子">环保盒子</view>
+</view> -->
+
+
+<!-- 搜索块 -->
+<scroll-view scroll-y="true" style="height: {{winHeight}}rpx"  class="foods-wrapper" wx:if="{{searchResults}}">
+    <view class="food-list food-list-hook" >
+      <view wx:for="{{productList}}" class="food-item" wx:for-item="product" data-food="{{food}}" wx:key="{{*this}}">
+        <view class="icon">
+          <image src="{{product.productPic1}}" class='pro_img' mode='aspectFill' lazy-load='true'></image>
+        </view>
+        <view class="content">
+          <view class="name sl_2">{{product.productDetail}}</view>
+          <view class="price">
+            <!-- <view class="now">￥{{food.price}}</view>
+            <view class="old" wx:if="{{food.oldPrice}}">￥{{food.oldPrice}}</view> -->
+            <view class='pro_number'>编号：{{product.productNum}}
+              <view class='rq_view'>
+                <image src='../images/rq.png' mode='aspectFit' class='rq'></image>
+                <text>{{product.productHot}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>

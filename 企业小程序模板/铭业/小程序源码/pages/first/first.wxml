@@ -1,0 +1,5 @@
+<view style='text-align:center; margin-top:100rpx;'>
+<image src='../images/11.png' class='logo' mode='widthFix'></image>
+<view>尚品商标行申请获取您的相关信息</view>
+<button open-type='getUserInfo'   class='yx_button'>允许获取信息</button>
+</view>

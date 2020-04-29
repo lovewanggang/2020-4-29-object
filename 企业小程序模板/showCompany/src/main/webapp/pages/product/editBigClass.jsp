@@ -1,0 +1,190 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+
+<base href="<%=basePath%>">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css"
+	href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" href="static/tag_editor/jquery.tag-editor.css">
+
+<title>修改分类</title>
+</head>
+
+<body>
+	<article class="page-container">
+		<form class="form form-horizontal" id="form-article-add">
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-12">类别名称：</label>
+				<div class="formControls col-xs-12 col-sm-12">
+					<input id="bigClassName" type="text" class="input-text" value="" maxlength="4"
+						placeholder="请输入类别名称，不超过8个字符">
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-12 col-sm-12"><span
+					class="c-red">*</span>产品属性设置：<span class="stip">输入后按回车键或点击其他位置，可输入多个</span></label>
+				<div class="formControls col-xs-12 col-sm-12">
+					<div style="margin:0 0 1.2em">
+						<div style="margin:0 0 1.2em">
+							<textarea id="demo6" placeholder="输入后按空格键，可输入多个"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row cl">
+				<div class="formControls col-xs-12 col-sm-12 skin-minimal">
+					<div class="check-box">
+						<input type="checkbox" id="checkbox-2"> <label
+							for="checkbox-2">是否默认隐藏(若勾选则不显示在小程序)</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row cl  ">
+				<div class="col-xs-12 col-sm-12  mt-50">
+					<!-- <button class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+					 -->
+					 <button class="btn btn-primary radius ml-30" type="button" onclick="edit()">
+						<i class="Hui-iconfont">&#xe632;</i> 保存修改
+					</button>
+
+				</div>
+			</div>
+		</form>
+	</article>
+
+	<!--_footer 作为公共模版分离出去-->
+	<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+	<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
+	<script type="text/javascript"
+		src="static/h-ui.admin/js/H-ui.admin.js"></script>
+	<!--多值输入插件-->
+	<script src="http://www.jq22.com/jquery/jquery-ui-1.10.2.js"></script>
+	<script src="static/tag_editor/jquery.tag-editor.js"></script>
+	<script>
+	var params = new Array();
+	function edit(){
+	var id = getQueryString("id");
+		if(!($("#bigClassName").val())){
+			alert("类别名称不能为空");
+			return;
+		}
+		
+		var param = "";
+		for(var i=0;i<$(".tag-editor-tag").length;i++){
+			param = param + $(".tag-editor-tag")[i].innerHTML+",";
+		}
+		param = param.substring(0,param.length-1);
+		var status = 0;
+		if($("#checkbox-2").is(":checked")){
+			status = 1;
+		}
+		
+		$.ajax({
+			url:"<%=basePath%>company/editBigClass.do",
+			type:"post",
+			dataType:"json",
+			data:{
+				"bigClass.productBigClassId":id,
+				"bigClass.bigClassName":$("#bigClassName").val(),
+				"bigClass.status":status,
+				"str":param,
+			},
+			success:function(data){
+				alert("修改成功");
+			},
+			error:function (){
+				alert("修改失败");
+			}
+		});
+	}
+	function getQueryString(id) { 
+		var reg = new RegExp("(^|&)" + id + "=([^&]*)(&|$)", "i"); 
+		var r = window.location.search.substr(1).match(reg); 
+		if (r != null) return unescape(r[2]); return null; 
+	}
+	function getData(){
+		var id = getQueryString("id");
+		$.ajax({
+			url:"<%=basePath%>company/findOneBigClass.do",
+			type:"post",
+			dataType:"json",
+			async:false,
+			data:{
+				"id":id
+			},
+			success:function(data){
+				$("#bigClassName").val(data.bigClass.bigClassName);
+				for(var i=0;i<data.bigClass.productParamer.length;i++){
+					params.push(data.bigClass.productParamer[i].paramerName);
+				}
+				if(data.bigClass.status == 1){
+					$("#checkbox-2").attr("checked",true);
+				}else{
+					$("#checkbox-2").attr("checked",false);
+				}
+				
+			},
+			error:function (){
+				alert("获取数据失败");
+			}
+		});
+	}
+	
+		$(function() {
+			getData();
+			$('.skin-minimal input').iCheck({
+				checkboxClass : 'icheckbox-blue',
+				radioClass : 'iradio-blue',
+				increaseArea : '20%'
+			});
+	
+			function tag_classes(field, editor, tags) {
+				$('li', editor).each(function() {});
+	
+			}
+	
+			$('#demo6').tagEditor({
+				initialTags : params, //输入框的值
+				onChange : tag_classes
+			});
+	
+			tag_classes(null, $('#demo6').tagEditor('getTags')[0].editor); // or editor == $('#demo6').next()
+			//判断有支分类
+			$('#checkbox-1').on('ifChecked', function(event) {
+				$(".haszfl").show();
+				console.log("啊不是都")
+			});
+			//判断无支分类
+			$('#checkbox-1').on('ifUnchecked', function(event) {
+				console.log("没有选中啊");
+				$(".haszfl").hide();
+			});
+		});
+	</script>
+
+</body>
+
+</html>

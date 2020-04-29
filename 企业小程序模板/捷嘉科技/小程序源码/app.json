@@ -1,0 +1,38 @@
+{
+  "pages":[
+    "pages/company_index/company_index",
+    "pages/Recruitment_details/Recruitment_details",
+    "pages/mdetail/mdetail",
+    "pages/Team/Team",
+    "pages/category/category",
+    "pages/search/search",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333333",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "pages/images/conany_1.png",
+        "iconPath": "pages/images/conpany.png",
+        "pagePath": "pages/company_index/company_index",
+        "text": "企业"
+      },
+      {
+        "selectedIconPath": "pages/images/home_1.png",
+        "iconPath": "pages/images/home.png",
+        "pagePath": "pages/category/category",
+        "text": "产品"
+      }
+     
+    ]
+  }
+}

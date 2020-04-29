@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="basePackage2" extends="json-default"></package>
+	<!-- 基础包 -->
+	<package name="basePackage" extends="json-default">
+		<interceptors>
+			<!-- 未登录过滤器 
+			<interceptor name="loginInterceptor"
+				class="com.nature.interceptor.LoginInterceptor"></interceptor> -->
+			<interceptor-stack name="lgStack">
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">error</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 默认拦截器 -->
+		<default-interceptor-ref name="lgStack" />
+		
+		<!-- 全局结果 -->
+		<global-results>
+			<result name="error">/pages/common/error.jsp</result>
+			<result name="noLogin">/pages/common/noLogin.jsp</result>
+		</global-results>
+		
+		<!-- 全局异常mapping -->
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		
+	</package>
+	<!-- 基础包 END -->
+	
+	<!-- 企业后台管理模块包START -->
+	<package name="company-manage-package" extends="basePackage">
+		<interceptors>
+			<!-- 未登录过滤器 -->
+			<interceptor name="loginInterceptor"
+				class="com.nature.interceptor.LoginInterceptor"></interceptor> 
+			<interceptor-stack name="companyManageStack">
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 默认拦截器 -->
+		<default-interceptor-ref name="companyManageStack" />
+	</package>
+	<!-- 企业后台管理模块包 END -->
+	
+</struts>

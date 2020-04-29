@@ -1,0 +1,118 @@
+
+<block wx:if="{{goods}}">
+<!-- 搜索框 -->
+<view class="search-wrapper">
+  <view class="search-panel">
+    <view class="search-section">
+      <view class="search-input-wrapper " bindtap='bindjd'>
+        <image src='../images/search.png' mode='aspectFit' class='search_icon'></image>
+        <input class="search-input" placeholder="输入分类或商品编号" disabled='true' />
+        <image src='../images/input_del.png' mode='aspectFit' class='search-clear' hidden='{{clear}}' bindtap='clear_search'></image>
+      </view>
+      <view class="search-button-wrapper">
+        <button size='mini' class='search_btn'>搜索</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="goods">
+  <view class="menu-wrapper">
+    <scroll-view scroll-y="true" style="height: 100vh; ">
+      <view wx:for="{{goods}}" wx:for-index="idx" wx:for-item="good" class="menu-item {{selected_left==idx?'orangeText':''}} " bindtap="selectMenu" data-value="{{idx}}"  data-bigclassId="{{good.productBigClassId}}">
+        <view class="text "> {{good.bigClassName}}</view>
+      </view>
+        <view style='height:80rpx;'></view> 
+    </scroll-view>
+  </view>
+
+  
+  <scroll-view scroll-y="true" style="height: 1z00vh;" scroll-into-view="{{toView}}" class="foods-wrapper" scroll-top="{{scroll}}">
+  <block  wx:for="{{productClasses}}" wx:for-item="productClass"    wx:for-index="parentIndex" >
+    <view class="food-list food-list-hook" wx:if="{{productClass.products.length > 0}}">
+      <view id="order{{parentIndex}}" class="title"  >
+        <text>{{productClass.pcName}}</text>
+      </view>
+      <view class='bz_img'>
+        <image mode='widthFix'  bindtap='viewPCpic' data-picurl='{{productClass.pcClassPic}}' src='{{productClass.pcClassPic}}' class='w100 '></image>
+      </view>
+
+      <view wx:for="{{productClass.products}}" class="food-item" wx:for-item="product" data-food="{{food}}"  bindtap="toProductDetail"  wx:if="{{product.status == 1}}" data-mydata="{{product.productId}}">
+        <view class="icon">
+          <image src="{{product.productPic1}}" class='pro_img' mode='aspectFill' lazy-load='true'></image>
+        </view>
+        <view class="content">
+          <view class="name sl_2">{{product.productDetail}}</view>
+          <view class="price">
+            <!-- <view class="now">￥{{food.price}}</view>
+            <view class="old" wx:if="{{food.oldPrice}}">￥{{food.oldPrice}}</view> -->
+            <view class='pro_number'>编号：{{product.productNum}}
+              <view class='rq_view'>
+                <image src='../images/rq.png' mode='aspectFit' class='rq'></image>
+                <text>{{product.productHot}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+    <view wx:for="{{goods}}" class="food-list food-list-hook" wx:for-index="parentIndex"  wx:if="{{parentIndex==selected_left}}">
+      <view id="order{{parentIndex}}" class="title"  >
+        <text>{{item.name}}</text>
+      </view>
+      <!-- <view class='bz_img'>
+        <image mode='widthFix' src='../images/lx_img.png' class='w100 '></image>
+      </view> -->
+
+      <view wx:for="{{item.foods}}" class="food-item" wx:for-item="food" data-food="{{food}}" >
+        <view class="icon">
+          <image src="{{food.icon}}" class='pro_img' mode='aspectFill' lazy-load='true'></image>
+        </view>
+        <view class="content">
+          <view class="name sl_2">环保袋式衣服绳子绑定版布环保袋式衣服绳子绑定版布衣服绳子绑定版布衣服绳子绑定版布</view>
+          <view class="price">
+            <!-- <view class="now">￥{{food.price}}</view>
+            <view class="old" wx:if="{{food.oldPrice}}">￥{{food.oldPrice}}</view> -->
+            <view class='pro_number'>编号：15446
+              <view class='rq_view'>
+                <image src='../images/rq.png' mode='aspectFit' class='rq'></image>
+                <text>440</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+     <view style='height:80rpx;'></view> 
+    </block>
+     
+  </scroll-view>
+
+  <!-- <view name="fade">
+    <view class="list-mask" wx:if="{{listShow}}" bindtap="hideList"></view>
+  </view> -->
+</view>
+
+
+<image src='../images/hotphone.png' mode='aspeciFit' class='hotphone' bindtap='hotphone'></image>
+<button  open-type='contact' class='kff'><image src='../images/kf.png' mode='aspeciFit' class='kf'  bindtap='kf'></image></button>
+<image src='https://wxnature.nature-nt.com/img/qr.png' mode='aspeciFit' class='shareewm' bindtap='shareewm'></image>
+</block>
+<block wx:else>
+<view style='text-align:center; margin-top:250rpx;'>
+<image mode='widthFix' src='https://wxnature.nature-nt.com/img/wu.png' style='width:200rpx;align:center;'></image>
+<view style='color:#999999; font-size:0.9em; margin-top:50rpx;'>
+公司暂未上传相关产品
+</view>
+</view>
+</block>
+<!-- 自定义弹框开始 -->
+<view class="model" wx:if="{{!authorized}}">
+  <view class="modelTitle"> 提示 </view>
+  <view class="modelBody">小程序注册需要获取您的公开信息,请返回授权</view>
+</view>
+<!-- 自定义弹框结束 -->
+<view class='zzcUser' wx:if="{{!authorized}}"></view>

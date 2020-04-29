@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>网红红花果茶</title>
+		<link href="images/favicon(1).ico" type="image/x-icon" rel="shortcut icon" />
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<link rel="stylesheet" href="css/font-awesome.min93e3.css">
+		<link rel="stylesheet" href="css/mine.css">
+		<link rel="stylesheet" href="css/fruit.css">
+		<!--轮播-->
+		<link rel="stylesheet" href="static/swiper_top/swiper_top.css">
+		<script src="static/swiper_top/swiper_top.js"></script>
+		<!--地图-->
+		 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=67jMQ5DmYTe1TLMBKFUTcZAR"></script>
+
+
+	</head>
+	<body>
+		<nav class="navigation-container">
+    <div class="main-navigation">
+        <ul class="main-menu hide-mobile">
+          
+           <li>
+                <a href="/product-locator">OUR TEAS</a>
+            </li>
+            <li>
+                <a href="/product-locator">Where to buy</a>
+            </li>
+        </ul>
+        <a href="/">
+            <img class="teavana-logo" src="https://www.teavana.com/images/447fe34554b6a4c1ea883cabfb05447c.svg" alt=" Logo">
+        </a>
+    </div>
+    <div id="hamburguer-menu" class="hamburguer hide-desktop">
+        <div id="hamburguer-lines-container" class="hamburguer-lines-container">
+            <span class="lines"></span>
+        </div>
+    </div>
+    <div id="main-menu-mobile" class="main-menu-mobile hide-desktop">
+        <ul class="first-level-menu">
+            
+            <li>
+                <a href="/product-locator">OUR TEAS</a>
+            </li>
+            <li>
+                <a href="/product-locator">Where to buy</a>
+            </li>
+            <li>
+                <a href="https://customerservice.starbucks.com/app/contact/ask" target="_blank">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+	
+	<div class="pro_detail header-trigger ">
+		<img src="img/de_1.png" class="w100">
+		<img src="img/de_2.png" class="w100">
+		<img src="img/de_3.png" class="w100">
+	</div>
+	<div class="container-fluid three_img  pd0">
+		<div class="mea">
+			<img src="img/图层4.png">
+		</div>
+		<div class="mea">
+			<img src="img/图层5.png">
+		</div>
+		<div class="mea">
+			<div class="ab_txt_w">jade citrus</div>
+			<img src="img/图层6.png">
+		</div>
+		
+		
+	</div>
+	<div class="map_foot " id="map">
+			<div style="width: 100%; height: 550px;" id="allmap"></div>
+			<div class="leave_message  hidden-xs">
+				<p class="contact">CONTACT US</p>
+				<p class="text-center"> Learn about our company profile, communityimpact, sustainable motivation,and more</p>
+				<form>
+					  <div class="form-group">
+					    <label >Name*</label>
+					    <input type="text" class="form-control my_input"  placeholder="Email">
+					  </div>
+					  <div class="form-group">
+					    <label>Email</label>
+					    <input type="email" class="form-control my_input" >
+					  </div>
+					  <div class="form-group">
+					    <label >YOUR MESSAGE*</label>
+					    <textarea  class="form-control my_input"    style="min-height: 90px;"></textarea>
+					  </div>
+					  
+					  <div class="text-center"><button type="submit" class="btn btn-default  green_b">SENT MESSAGE</button></div>
+					  
+					</form>
+			</div>
+			
+		</div>
+	
+	</body>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script>
+				$(function(){
+					//        桌面首屏轮播实例化
+					var mySwiper = new Swiper('.main_banner', {
+						autoplay: {
+							delay: 5000,
+							stopOnLastSlide: false,
+							disableOnInteraction: false,
+						},
+						pagination: {
+							el: '.swiper-pagination'
+						}
+					});
+					$(".swiper-pagination span").on("click", function() {
+						mySwiper.slideTo($(this).index(), 300, false);
+						mySwiper.autoplay.stop();
+						$(this).on("mouseout", function() {
+							mySwiper.autoplay.start();
+						});
+					});
+					
+					
+					
+					
+					
+				//        移动端首屏轮播实例化
+			    var mobilebanner1=new Swiper('.mobile-main_banner', {
+			        autoplay: {
+			            delay: 5000,
+			            stopOnLastSlide: false,
+			            disableOnInteraction: false,
+			        },
+			        pagination: {
+			            el: '.swiper-pagination'
+			        }
+			    });
+			  })
+		</script>
+		
+		<script type="text/javascript">
+    $(function () {
+        ShowMap('113.54143,22.274386', '广州奈尘网络科技有限公司', '珠江国际纺织城A2栋1907', '021-888888888', '021-888888888', '20');
+    })
+    function getInfo(id) {
+        $.ajax({
+            type: "POST",
+            url: "WebUserControl/Contact/GetInfo.ashx",
+            cache: false,
+            async: false,
+            data: { ID: id },
+            success: function (data) {
+                data = eval(data);
+                var length = data.length;
+                if (length > 0) {
+                    ShowMap(data[0]["Image"], data[0]["NewsTitle"], data[0]["Address"], data[0]["Phone"], data[0]["NewsTags"], data[0]["NewsNum"]);
+                }
+            }
+        });
+    }
+    function ShowMap(zuobiao, name, addrsee, phone, chuanzhen, zoom) {
+        var arrzuobiao = zuobiao.split(',');
+        var map = new BMap.Map("allmap");
+        map.centerAndZoom(new BMap.Point(arrzuobiao[0], arrzuobiao[1]), zoom);
+        map.addControl(new BMap.NavigationControl());
+        var marker = new BMap.Marker(new BMap.Point(arrzuobiao[0], arrzuobiao[1]));
+        map.addOverlay(marker);
+        var infoWindow = new BMap.InfoWindow('<p style="color: #bf0008;font-size:14px;">' + name + '</p><p>地址：' + addrsee + '</p><p>电话：' + phone + '</p><p>传真：' + chuanzhen + '</p>');
+        marker.addEventListener("click", function () {
+            this.openInfoWindow(infoWindow);
+        });
+        marker.openInfoWindow(infoWindow);
+    }
+</script>
+<script type="text/javascript" src="js/background.js"></script>
+</html>

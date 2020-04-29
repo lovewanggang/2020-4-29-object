@@ -1,0 +1,13 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class='team'>
+ <view class='team_title'>{{activity.activityTitle}}</view>
+ <view class='fb_time'>
+ {{activity.createTime}}
+ </view>
+ <!-- 正文 -->
+<view class='main'>
+<view class="wxParse">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+</view>
+</view>

@@ -1,0 +1,19 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class='team'>
+ <view class='team_title'>{{activity.activityTitle}}</view>
+ <view class='fb_time'>
+ {{activity.createTime}}
+ </view>
+ <!-- 正文 -->
+<view class='main'>
+<view class="wxParse">
+  <view class="page-body">
+      <view class="page-section">
+      <view class="rich-text-wrp">
+      <rich-text nodes="{{article}}" bindtap="tap"></rich-text>
+      </view>
+      </view>
+      </view>
+</view>
+</view>
+</view>
